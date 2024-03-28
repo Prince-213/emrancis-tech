@@ -47,6 +47,7 @@ export default function Page({ params }: Props) {
                   className=" h-[30vh] lg:h-[70vh] w-full object-cover  group-hover/card:shadow-xl"
                   alt="thumbnail"
                   loading="lazy"
+                  placeholder="blur"
                 />
               </div>
 

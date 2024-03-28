@@ -132,6 +132,7 @@ export default function Page({ params }: Props) {
             className=" h-[30vh] lg:sticky lg:top-0 lg:h-screen lg:w-[45%] rounded-xl object-cover  group-hover/card:shadow-xl"
             alt="thumbnail"
             loading="lazy"
+            placeholder="blur"
           />
           <motion.div
             variants={{
@@ -197,6 +198,7 @@ export default function Page({ params }: Props) {
                       }%] rounded-xl object-cover  group-hover/card:shadow-xl`}
                       alt="thumbnail"
                       loading="lazy"
+                      placeholder="blur"
                     />
                     <div className=" mt-4">
                       <h1 className=" font-bold text- capitalize">

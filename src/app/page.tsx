@@ -253,6 +253,7 @@ export default function Home() {
                   className=" h-[30vh] lg:h-[56vh] w-full object-cover rounded-xl group-hover/card:shadow-xl"
                   alt="thumbnail"
                   loading="lazy"
+                  placeholder="blur"
                 />
               </div>
             </motion.div>
@@ -355,6 +356,7 @@ export default function Home() {
                     className=" h-[65vh] lg:block hidden w-[40%] object-cover rounded-xl group-hover/card:shadow-xl"
                     alt="thumbnail"
                     loading="lazy"
+                  placeholder="blur"
                   />
                 </section>
               );
@@ -508,6 +510,7 @@ export default function Home() {
               className=" h-[30vh] lg:h-[65vh] pro-card w-full object-cover rounded-xl group-hover/card:shadow-xl"
               alt="thumbnail"
               loading="lazy"
+                  placeholder="blur"
             />
             <motion.div
               variants={{
@@ -667,6 +670,7 @@ export default function Home() {
                           className=" h-20 w-20 object-cover rounded-[50%] group-hover/card:shadow-xl"
                           alt="thumbnail"
                           loading="lazy"
+                  placeholder="blur"
                         />
                         <div>
                           <div className=" text-lg font-semibold">
@@ -703,47 +707,46 @@ export default function Home() {
             <span className=" text-blue-500 ">news</span>
           </motion.h1>
 
-         
-            <motion.div className=" w-full gap-6 mt-8 lg:mt-16  grid grid-cols-1 lg:grid-cols-3 ">
-              {[1, 2, 3].map((item, idx) => {
-                return (
-                  <Slide key={idx}>
-                    <Link href={`/blog/test`} key={idx}>
-                      <motion.div
-                        key={idx}
-                        className=" min-h-fit mb-auto mt-0 overflow-hidden shadow-2xl shadow-[#00000021] rounded-2xl bg-white "
-                      >
-                        <div className=" space-y-5">
-                          <Image
-                            src="/pexels-jimmy-jimmy-1484806.jpg"
-                            height="1000"
-                            width="1000"
-                            className=" h-[30vh] w-full object-cover  group-hover/card:shadow-xl"
-                            alt="thumbnail"
-                            loading="lazy"
-                          />
+          <motion.div className=" w-full gap-6 mt-8 lg:mt-16  grid grid-cols-1 lg:grid-cols-3 ">
+            {[1, 2, 3].map((item, idx) => {
+              return (
+                <Slide key={idx}>
+                  <Link href={`/blog/test`} key={idx}>
+                    <motion.div
+                      key={idx}
+                      className=" min-h-fit mb-auto mt-0 overflow-hidden shadow-2xl shadow-[#00000021] rounded-2xl bg-white "
+                    >
+                      <div className=" space-y-5">
+                        <Image
+                          src="/pexels-jimmy-jimmy-1484806.jpg"
+                          height="1000"
+                          width="1000"
+                          className=" h-[30vh] w-full object-cover  group-hover/card:shadow-xl"
+                          alt="thumbnail"
+                          loading="lazy"
+                  placeholder="blur"
+                        />
 
-                          <div className=" items-center p-5 space-y-4">
-                            <p className=" text-base font-medium text-gray-500">
-                              May 20, 2023
-                            </p>
-                            <h1 className=" text-2xl font-bold">
-                              5 reasons why Techty is the go-to choice for small
-                              business.
-                            </h1>
-                            <p className=" text-gray-700">
-                              Let us manage your IT for you so that you can get
-                              back to doing what you do best.
-                            </p>
-                          </div>
+                        <div className=" items-center p-5 space-y-4">
+                          <p className=" text-base font-medium text-gray-500">
+                            May 20, 2023
+                          </p>
+                          <h1 className=" text-2xl font-bold">
+                            5 reasons why Techty is the go-to choice for small
+                            business.
+                          </h1>
+                          <p className=" text-gray-700">
+                            Let us manage your IT for you so that you can get
+                            back to doing what you do best.
+                          </p>
                         </div>
-                      </motion.div>
-                    </Link>
-                  </Slide>
-                );
-              })}
-            </motion.div>
-          
+                      </div>
+                    </motion.div>
+                  </Link>
+                </Slide>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
     </main>
