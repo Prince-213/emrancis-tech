@@ -14,8 +14,7 @@ import { CheckCircle2, Star } from "lucide-react";
 import { motion, useSpring, useAnimationControls } from "framer-motion";
 
 import { GlobeDemo } from "@/lib/components/globe";
-
-
+import Slide from "@/lib/components/Slide";
 
 export default function Home() {
   const root: any = useRef();
@@ -72,43 +71,53 @@ export default function Home() {
 
   const testimonials = [
     {
-      "name": "Prince Jonathan",
-      "occupation": "ICT Manager",
-      "review": "Exceptional teaching methods! The courses provided by Emrancis have significantly improved my programming skills. The instructors are knowledgeable, and the learning materials are well-structured. Highly recommend!",
-      "profile": 'https://source.unsplash.com/man-wearing-white-button-up-shirt-hAMJpesMeDE'
+      name: "Prince Jonathan",
+      occupation: "ICT Manager",
+      review:
+        "Exceptional teaching methods! The courses provided by Emrancis have significantly improved my programming skills. The instructors are knowledgeable, and the learning materials are well-structured. Highly recommend!",
+      profile:
+        "https://source.unsplash.com/man-wearing-white-button-up-shirt-hAMJpesMeDE",
     },
     {
-      "name": "Kwame Boateng",
-      "occupation": "Software Engineer",
-      "review": "I've had an amazing experience learning from Emrancis. The instructors are passionate about teaching and go above and beyond to ensure understanding. The projects assigned are practical and helped me gain real-world experience.",
-      "profile": 'https://source.unsplash.com/a-man-with-a-mustache-P_jBxTIYGKg'
+      name: "Kwame Boateng",
+      occupation: "Software Engineer",
+      review:
+        "I've had an amazing experience learning from Emrancis. The instructors are passionate about teaching and go above and beyond to ensure understanding. The projects assigned are practical and helped me gain real-world experience.",
+      profile: "https://source.unsplash.com/a-man-with-a-mustache-P_jBxTIYGKg",
     },
     {
-      "name": "Chinonso Okonkwo",
-      "occupation": "Full Stack Developer",
-      "review": "I'm extremely satisfied with the quality of education provided by Emrancis. The curriculum covers a wide range of topics, and the hands-on approach helped me grasp complex concepts more effectively. Thank you for the invaluable learning experience!",
-      "profile": 'https://source.unsplash.com/a-man-with-his-hand-on-his-chin-Rz_8bZzlPc0'
+      name: "Chinonso Okonkwo",
+      occupation: "Full Stack Developer",
+      review:
+        "I'm extremely satisfied with the quality of education provided by Emrancis. The curriculum covers a wide range of topics, and the hands-on approach helped me grasp complex concepts more effectively. Thank you for the invaluable learning experience!",
+      profile:
+        "https://source.unsplash.com/a-man-with-his-hand-on-his-chin-Rz_8bZzlPc0",
     },
     {
-      "name": "Oluwaseun Adeyemi",
-      "occupation": "Backend Developer",
-      "review": "As someone with prior programming knowledge, I can confidently say that the courses offered by Emrancis exceeded my expectations. The instructors are experts in their field and offer personalized guidance to help students succeed. Highly recommended for anyone looking to advance their skills!",
-      "profile": 'https://source.unsplash.com/boy-in-green-and-white-adidas-soccer-jersey-cF6quSnBnQ4'
+      name: "Oluwaseun Adeyemi",
+      occupation: "Backend Developer",
+      review:
+        "As someone with prior programming knowledge, I can confidently say that the courses offered by Emrancis exceeded my expectations. The instructors are experts in their field and offer personalized guidance to help students succeed. Highly recommended for anyone looking to advance their skills!",
+      profile:
+        "https://source.unsplash.com/boy-in-green-and-white-adidas-soccer-jersey-cF6quSnBnQ4",
     },
     {
-      "name": "Okafor Francis",
-      "occupation": "CEO",
-      "review": "I'm impressed by the dedication and professionalism of the instructors. They make complex topics easy to understand and create a supportive learning environment. I've gained confidence in my programming abilities thanks to their guidance.",
-      "profile": 'https://source.unsplash.com/man-in-red-blue-and-white-plaid-dress-shirt-wearing-yellow-hat-holding-black-smartphone-xdS9XEoKBLY'
+      name: "Okafor Francis",
+      occupation: "CEO",
+      review:
+        "I'm impressed by the dedication and professionalism of the instructors. They make complex topics easy to understand and create a supportive learning environment. I've gained confidence in my programming abilities thanks to their guidance.",
+      profile:
+        "https://source.unsplash.com/man-in-red-blue-and-white-plaid-dress-shirt-wearing-yellow-hat-holding-black-smartphone-xdS9XEoKBLY",
     },
     {
-      "name": "Okah Ifeanyi Livinus",
-      "occupation": "Project Manager",
-      "review": "Enrolling in courses was one of the best decisions I've made for my career. The practical knowledge gained has been instrumental in my role as a project manager. The instructors are highly skilled and passionate about teaching. I highly recommend their programs!",
-      "profile": 'https://source.unsplash.com/man-wearing-black-shirt-aoEwuEH7YAs'
-    }
-  ]
-  
+      name: "Okah Ifeanyi Livinus",
+      occupation: "Project Manager",
+      review:
+        "Enrolling in courses was one of the best decisions I've made for my career. The practical knowledge gained has been instrumental in my role as a project manager. The instructors are highly skilled and passionate about teaching. I highly recommend their programs!",
+      profile:
+        "https://source.unsplash.com/man-wearing-black-shirt-aoEwuEH7YAs",
+    },
+  ];
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -411,8 +420,8 @@ export default function Home() {
                   <path
                     d="M8.69667 0.0403541C8.90859 0.131038 9.03106 0.354857 8.99316 0.582235L8.0902 6.00001H12.5C12.6893 6.00001 12.8625 6.10701 12.9472 6.27641C13.0319 6.4458 13.0136 6.6485 12.8999 6.80001L6.89997 14.8C6.76167 14.9844 6.51521 15.0503 6.30328 14.9597C6.09135 14.869 5.96888 14.6452 6.00678 14.4178L6.90974 9H2.49999C2.31061 9 2.13748 8.893 2.05278 8.72361C1.96809 8.55422 1.98636 8.35151 2.09999 8.2L8.09997 0.200038C8.23828 0.0156255 8.48474 -0.0503301 8.69667 0.0403541ZM3.49999 8.00001H7.49997C7.64695 8.00001 7.78648 8.06467 7.88148 8.17682C7.97648 8.28896 8.01733 8.43723 7.99317 8.5822L7.33027 12.5596L11.5 7.00001H7.49997C7.353 7.00001 7.21347 6.93534 7.11846 6.8232C7.02346 6.71105 6.98261 6.56279 7.00678 6.41781L7.66968 2.44042L3.49999 8.00001Z"
                     fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
               </div>
@@ -443,8 +452,8 @@ export default function Home() {
                   <path
                     d="M7.5 0C7.77614 0 8 0.223858 8 0.5V1.80687C10.6922 2.0935 12.8167 4.28012 13.0068 7H14.5C14.7761 7 15 7.22386 15 7.5C15 7.77614 14.7761 8 14.5 8H12.9888C12.7094 10.6244 10.6244 12.7094 8 12.9888V14.5C8 14.7761 7.77614 15 7.5 15C7.22386 15 7 14.7761 7 14.5V13.0068C4.28012 12.8167 2.0935 10.6922 1.80687 8H0.5C0.223858 8 0 7.77614 0 7.5C0 7.22386 0.223858 7 0.5 7H1.78886C1.98376 4.21166 4.21166 1.98376 7 1.78886V0.5C7 0.223858 7.22386 0 7.5 0ZM8 12.0322V9.5C8 9.22386 7.77614 9 7.5 9C7.22386 9 7 9.22386 7 9.5V12.054C4.80517 11.8689 3.04222 10.1668 2.76344 8H5.5C5.77614 8 6 7.77614 6 7.5C6 7.22386 5.77614 7 5.5 7H2.7417C2.93252 4.73662 4.73662 2.93252 7 2.7417V5.5C7 5.77614 7.22386 6 7.5 6C7.77614 6 8 5.77614 8 5.5V2.76344C10.1668 3.04222 11.8689 4.80517 12.054 7H9.5C9.22386 7 9 7.22386 9 7.5C9 7.77614 9.22386 8 9.5 8H12.0322C11.7621 10.0991 10.0991 11.7621 8 12.0322Z"
                     fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
               </div>
@@ -475,8 +484,8 @@ export default function Home() {
                   <path
                     d="M7.50009 0.877014C3.84241 0.877014 0.877258 3.84216 0.877258 7.49984C0.877258 11.1575 3.8424 14.1227 7.50009 14.1227C11.1578 14.1227 14.1229 11.1575 14.1229 7.49984C14.1229 3.84216 11.1577 0.877014 7.50009 0.877014ZM1.82726 7.49984C1.82726 4.36683 4.36708 1.82701 7.50009 1.82701C10.6331 1.82701 13.1729 4.36683 13.1729 7.49984C13.1729 10.6328 10.6331 13.1727 7.50009 13.1727C4.36708 13.1727 1.82726 10.6328 1.82726 7.49984ZM8 4.50001C8 4.22387 7.77614 4.00001 7.5 4.00001C7.22386 4.00001 7 4.22387 7 4.50001V7.50001C7 7.63262 7.05268 7.7598 7.14645 7.85357L9.14645 9.85357C9.34171 10.0488 9.65829 10.0488 9.85355 9.85357C10.0488 9.65831 10.0488 9.34172 9.85355 9.14646L8 7.29291V4.50001Z"
                     fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
               </div>
@@ -507,7 +516,7 @@ export default function Home() {
               }}
               initial="initial"
               whileInView="show"
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: "all" }}
               transition={{
                 delay: 0.4,
               }}
@@ -625,72 +634,50 @@ export default function Home() {
             saying about us.
           </motion.h1>
 
-          <motion.div
-            variants={{
-              hidden: { opacity: 1 },
-              visible: {
-                opacity: 1,
-        
-                transition: {
-                  delayChildren: 0.1,
-                  staggerChildren: 0.2,
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 20,
-                },
-              },
-            }}
-            initial="hidden"
-            whileInView={"visible"}
-            viewport={{ once: true }}
-            className=" w-full mt-10 grid lg:mt-20 lg:grid-cols-3 place-content-start  items-start justify-start  grid-cols-1 gap-5  "
-          >
+          <motion.div className=" w-full mt-10 grid lg:mt-20 lg:grid-cols-3 place-content-start  items-start justify-start  grid-cols-1 gap-5  ">
             {testimonials.map((item, idx) => {
               return (
-                <motion.div
-                  variants={{
-                    hidden: { y: 10, opacity: 0 },
-                    visible: {
-                      y: 0,
-                      opacity: 1,
-                    },
-                  }}
-                  key={idx}
-                  className={` h-full mt-auto m-auto   rounded-lg  border-2 p-10 ${
-                    idx == 0 ? "lg:col-span-2" : ""
-                  } ${ idx == 3 ? " lg:col-span-2 " : "" } ${ idx == 5 ? " lg:col-span-2 " : "" } `}
-                >
-                  <div className=" space-y-5">
-                    <div className=" flex items-center space-x-2">
-                      {[1, 2, 3, 4, 5].map((item, idx) => {
-                        return (
-                          <Star
-                            key={idx}
-                            fill="rgb(250 204 21)"
-                            className=" text-yellow-400"
-                          />
-                        );
-                      })}
-                    </div>
-                    <p className=" font-medium">“{item.review}”</p>
-                    <div className=" flex items-center space-x-2">
-                      <Image
-                        src={item.profile}
-                        height="1000"
-                        width="1000"
-                        className=" h-20 w-20 object-cover rounded-[50%] group-hover/card:shadow-xl"
-                        alt="thumbnail"
-                        loading="lazy"
-                      />
-                      <div>
-                        <div className=" text-lg font-semibold">
-                          {item.name}
+                <Slide key={idx}>
+                  <motion.div
+                    key={idx}
+                    className={` h-full mt-auto m-auto   rounded-lg  border-2 p-10 ${
+                      idx == 0 ? "lg:col-span-2" : ""
+                    } ${idx == 3 ? " lg:col-span-2 " : ""} ${
+                      idx == 5 ? " lg:col-span-2 " : ""
+                    } `}
+                  >
+                    <div className=" space-y-5">
+                      <div className=" flex items-center space-x-2">
+                        {[1, 2, 3, 4, 5].map((item, idx) => {
+                          return (
+                            <Star
+                              key={idx}
+                              fill="rgb(250 204 21)"
+                              className=" text-yellow-400"
+                            />
+                          );
+                        })}
+                      </div>
+                      <p className=" font-medium">“{item.review}”</p>
+                      <div className=" flex items-center space-x-2">
+                        <Image
+                          src={item.profile}
+                          height="1000"
+                          width="1000"
+                          className=" h-20 w-20 object-cover rounded-[50%] group-hover/card:shadow-xl"
+                          alt="thumbnail"
+                          loading="lazy"
+                        />
+                        <div>
+                          <div className=" text-lg font-semibold">
+                            {item.name}
+                          </div>
+                          <p>{item.occupation}</p>
                         </div>
-                        <p>{item.occupation}</p>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Slide>
               );
             })}
           </motion.div>
@@ -716,69 +703,47 @@ export default function Home() {
             <span className=" text-blue-500 ">news</span>
           </motion.h1>
 
-          <motion.div
-            variants={{
-              hidden: { opacity: 1, scale: 0 },
-              visible: {
-                opacity: 1,
-                scale: 1,
-                transition: {
-                  delayChildren: 0.1,
-                  staggerChildren: 0.2,
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 20,
-                },
-              },
-            }}
-            initial="hidden"
-            whileInView={"visible"}
-            viewport={{ once: true }}
-            className=" w-full gap-6 mt-8 lg:mt-16  grid grid-cols-1 lg:grid-cols-3 "
-          >
-            {[1, 2, 3].map((item, idx) => {
-              return (
-                <Link href={`/blog/test`} key={idx}>
-                  <motion.div
-                    variants={{
-                      hidden: { y: 20, opacity: 0 },
-                      visible: {
-                        y: 0,
-                        opacity: 1,
-                      },
-                    }}
-                    key={idx}
-                    className=" min-h-fit mb-auto mt-0 overflow-hidden shadow-2xl shadow-[#00000021] rounded-2xl bg-white "
-                  >
-                    <div className=" space-y-5">
-                      <Image
-                        src="/pexels-jimmy-jimmy-1484806.jpg"
-                        height="1000"
-                        width="1000"
-                        className=" h-[30vh] w-full object-cover  group-hover/card:shadow-xl"
-                        alt="thumbnail"
-                        loading="lazy"
-                      />
+         
+            <motion.div className=" w-full gap-6 mt-8 lg:mt-16  grid grid-cols-1 lg:grid-cols-3 ">
+              {[1, 2, 3].map((item, idx) => {
+                return (
+                  <Slide key={idx}>
+                    <Link href={`/blog/test`} key={idx}>
+                      <motion.div
+                        key={idx}
+                        className=" min-h-fit mb-auto mt-0 overflow-hidden shadow-2xl shadow-[#00000021] rounded-2xl bg-white "
+                      >
+                        <div className=" space-y-5">
+                          <Image
+                            src="/pexels-jimmy-jimmy-1484806.jpg"
+                            height="1000"
+                            width="1000"
+                            className=" h-[30vh] w-full object-cover  group-hover/card:shadow-xl"
+                            alt="thumbnail"
+                            loading="lazy"
+                          />
 
-                      <div className=" items-center p-5 space-y-4">
-                        <p className=" text-base font-medium text-gray-500">
-                          May 20, 2023
-                        </p>
-                        <h1 className=" text-2xl font-bold">
-                          5 reasons why Techty is the go-to choice for small
-                          business.
-                        </h1>
-                        <p className=" text-gray-700">
-                          Let us manage your IT for you so that you can get back
-                          to doing what you do best.
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </Link>
-              );
-            })}
-          </motion.div>
+                          <div className=" items-center p-5 space-y-4">
+                            <p className=" text-base font-medium text-gray-500">
+                              May 20, 2023
+                            </p>
+                            <h1 className=" text-2xl font-bold">
+                              5 reasons why Techty is the go-to choice for small
+                              business.
+                            </h1>
+                            <p className=" text-gray-700">
+                              Let us manage your IT for you so that you can get
+                              back to doing what you do best.
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </Link>
+                  </Slide>
+                );
+              })}
+            </motion.div>
+          
         </div>
       </section>
     </main>

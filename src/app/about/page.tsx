@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 
 import { motion } from "framer-motion";
+import Slide from "@/lib/components/Slide";
 
 interface Props {
   params: {
@@ -33,7 +34,8 @@ const testimonials = [
     occupation: "Project Manager",
     review:
       "Enrolling in courses was one of the best decisions I've made for my career. The practical knowledge gained has been instrumental in my role as a project manager. The instructors are highly skilled and passionate about teaching. I highly recommend their programs!",
-    profile: "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4",
+    profile:
+      "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4",
   },
 ];
 
@@ -108,6 +110,16 @@ export default function Page({ params }: Props) {
                 critically and innovate confidently.
               </p>
             </div>
+            <div>
+              <h3 className=" text-xl lg:text-2xl font-bold">Our Mission</h3>
+              <p className=" lg:text-lg font-medium">
+                Our mission is simple yet profound: to make programming
+                accessible to everyone. Whether {"you're"} a novice eager to
+                take your first steps into the world of coding or a seasoned
+                developer looking to expand your skill set, Unlocking the Code
+                is here to guide you on your journey.
+              </p>
+            </div>
           </motion.div>
         </motion.div>
       </div>
@@ -171,50 +183,29 @@ export default function Page({ params }: Props) {
             organization
           </h1>
 
-          <motion.div
-            variants={{
-              hidden: { opacity: 1 },
-              visible: {
-                opacity: 1,
-
-                transition: {
-                  delayChildren: 0.1,
-                  staggerChildren: 0.2,
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 20,
-                },
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            className=" mt-[5vh] lg:mt-[10vh] gap-y-5 lg:gap-y-0 lg:gap-x-5 grid grid-cols-1 lg:flex lg:justify-between lg:items-center "
-          >
+          <motion.div className=" mt-[5vh] lg:mt-[10vh] gap-y-5 lg:gap-y-0 lg:gap-x-5 grid grid-cols-1 lg:flex lg:justify-between lg:items-center ">
             {testimonials.map((item, idx) => {
               return (
-                <motion.div
-                  variants={{
-                    hidden: { y: 20, opacity: 0 },
-                    visible: {
-                      y: 0,
-                      opacity: 1,
-                    },
-                  }}
-                  key={idx}
-                >
-                  <Image
-                    src={item.profile}
-                    height="1000"
-                    width="1000"
-                    className={` h-[25vh] lg:h-[45vh] max-w-[${(100/testimonials.length) - 10}%] rounded-xl object-cover  group-hover/card:shadow-xl`}
-                    alt="thumbnail"
-                    loading="lazy"
-                  />
-                  <div className=" mt-4">
-                    <h1 className=" font-bold text- capitalize">{item.name}</h1>
-                    <h2 className=" capitalize">{item.occupation}</h2>
-                  </div>
-                </motion.div>
+                <Slide key={idx}>
+                  <motion.div key={idx}>
+                    <Image
+                      src={item.profile}
+                      height="1000"
+                      width="1000"
+                      className={` h-[25vh] lg:h-[45vh] max-w-[${
+                        100 / testimonials.length - 10
+                      }%] rounded-xl object-cover  group-hover/card:shadow-xl`}
+                      alt="thumbnail"
+                      loading="lazy"
+                    />
+                    <div className=" mt-4">
+                      <h1 className=" font-bold text- capitalize">
+                        {item.name}
+                      </h1>
+                      <h2 className=" capitalize">{item.occupation}</h2>
+                    </div>
+                  </motion.div>
+                </Slide>
               );
             })}
           </motion.div>
