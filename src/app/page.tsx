@@ -627,13 +627,13 @@ export default function Home() {
 
           <motion.div
             variants={{
-              hidden: { opacity: 1, scale: 0 },
+              hidden: { opacity: 1 },
               visible: {
                 opacity: 1,
-                scale: 1,
+        
                 transition: {
-                  delayChildren: 0.2,
-                  staggerChildren: 0.3,
+                  delayChildren: 0.1,
+                  staggerChildren: 0.2,
                   type: "spring",
                   stiffness: 260,
                   damping: 20,
@@ -649,7 +649,7 @@ export default function Home() {
               return (
                 <motion.div
                   variants={{
-                    hidden: { y: 20, opacity: 0 },
+                    hidden: { y: 10, opacity: 0 },
                     visible: {
                       y: 0,
                       opacity: 1,
@@ -723,8 +723,8 @@ export default function Home() {
                 opacity: 1,
                 scale: 1,
                 transition: {
-                  delayChildren: 0.2,
-                  staggerChildren: 0.3,
+                  delayChildren: 0.1,
+                  staggerChildren: 0.2,
                   type: "spring",
                   stiffness: 260,
                   damping: 20,
