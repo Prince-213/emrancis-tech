@@ -1,17 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import React, {
-  LegacyRef,
-  useEffect,
-  useRef,
-  useState,
-  useLayoutEffect,
-  Component,
-} from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
-import Lenis from "@studio-freight/lenis";
+
+import React from "react";
+
 import { Clock, Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -32,7 +23,7 @@ export default function Page({ params }: Props) {
           <div className=" lg:w-[50%] mx-auto space-y-5 ">
             <h1 className=" font-bold text-4xl lg:text-6xl ">Contact Us</h1>
             <p className=" text-lg">
-              We're constantly pushing the boundaries of what's possible and
+              {"We're"} constantly pushing the boundaries of {"what's"} possible and
               seeking new ways to improve our services.
             </p>
           </div>
@@ -49,7 +40,7 @@ export default function Page({ params }: Props) {
           >
             <div className=" lg:w-[45%]">
               <h3 className=" lg:max-w-[70%] text-center lg:text-left text-2xl font-bold">
-                We're happy to discuss your project and answer any question
+                {"We're"} happy to discuss your project and answer any question
               </h3>
               <div className=" mt-10 lg:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-y-10">
                 <div className=" text-left flex flex-col space-y-5 justify-start">

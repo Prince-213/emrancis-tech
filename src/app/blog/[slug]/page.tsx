@@ -1,5 +1,5 @@
 
-import { motion } from "framer-motion";
+
 import Image from "next/image";
 import type { Metadata } from "next";
 
@@ -51,13 +51,13 @@ export default function Page({ params }: Props) {
             <h3 className=" text-2xl lg:text-4xl font-bold text-left">What is AI</h3>
             <p className=" lg:text-lg">
               At Techty, we understand how frustrating it can be to deal with a
-              leaky faucet or pipe. That's why we offer reliable and efficient
+              leaky faucet or pipe. {"That's"} why we offer reliable and efficient
               faucet and leak repair services to help you save money on your
               water bills and prevent further damage to your property.
             </p>
             <p className=" lg:text-lg">
               At Techty, we understand how frustrating it can be to deal with a
-              leaky faucet or pipe. That's why we offer reliable and efficient
+              leaky faucet or pipe. {"That's"} why we offer reliable and efficient
               faucet and leak repair services to help you save money on your
               water bills and prevent further damage to your property.
             </p>

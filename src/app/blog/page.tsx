@@ -2,25 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, {
-  LegacyRef,
-  useEffect,
-  useRef,
-  useState,
-  useLayoutEffect,
-  Component,
-} from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
-import Lenis from "@studio-freight/lenis";
-import {
-  Tv,
-  ArrowRight,
-  BriefcaseBusiness,
-  Speaker,
-  BarChart4,
-  CheckCircle,
-} from "lucide-react";
+import React from "react";
+
+
 import { motion } from "framer-motion";
 
 interface Props {
@@ -41,7 +25,7 @@ export default function Page({ params }: Props) {
           <div className=" lg:w-[50%] mx-auto space-y-5 ">
             <h1 className=" font-bold text-4xl lg:text-6xl ">Our Blog</h1>
             <p className=" lg:text-lg">
-              We're constantly pushing the boundaries of what's possible and
+              {"We're"} constantly pushing the boundaries of {"what's"} possible and
               seeking new ways to improve our services.
             </p>
           </div>
@@ -103,7 +87,7 @@ export default function Page({ params }: Props) {
             Read All Articles
           </motion.h1>
           <p className=" text-lg mt-5 text-center lg:w-[50%] mx-auto">
-            We're constantly pushing the boundaries of what's possible and
+            {"We're"} constantly pushing the boundaries of {"what's"} possible and
             seeking new ways to improve our services.
           </p>
 

@@ -1,17 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import React, {
-  LegacyRef,
-  useEffect,
-  useRef,
-  useState,
-  useLayoutEffect,
-  Component,
-} from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
-import Lenis from "@studio-freight/lenis";
+import React from "react";
+
 import { motion } from "framer-motion";
 
 interface Props {
@@ -19,6 +10,32 @@ interface Props {
     id: string;
   };
 }
+
+const testimonials = [
+  {
+    name: "Prince Jonathan",
+    occupation: "ICT Manager",
+    review:
+      "Exceptional teaching methods! The courses provided by Emrancis have significantly improved my programming skills. The instructors are knowledgeable, and the learning materials are well-structured. Highly recommend!",
+    profile:
+      "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4",
+  },
+  {
+    name: "Okafor Francis",
+    occupation: "CEO",
+    review:
+      "I'm impressed by the dedication and professionalism of the instructors. They make complex topics easy to understand and create a supportive learning environment. I've gained confidence in my programming abilities thanks to their guidance.",
+    profile:
+      "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4",
+  },
+  {
+    name: "Okah Ifeanyi Livinus",
+    occupation: "Project Manager",
+    review:
+      "Enrolling in courses was one of the best decisions I've made for my career. The practical knowledge gained has been instrumental in my role as a project manager. The instructors are highly skilled and passionate about teaching. I highly recommend their programs!",
+    profile: "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4",
+  },
+];
 
 export default function Page({ params }: Props) {
   const { id } = params;
@@ -43,10 +60,10 @@ export default function Page({ params }: Props) {
           className=" w-[85%] flex lg:flex-row flex-col space-y-8 lg:space-y-0 justify-between items-center mx-auto"
         >
           <Image
-            src="https://source.unsplash.com/black-flat-screen-computer-monitor-turned-on-displaying-website-koOdUvfGr4c"
+            src="https://source.unsplash.com/purple-and-black-checkered-illustration-m_7p45JfXQo"
             height="1000"
             width="1000"
-            className=" h-[30vh] lg:h-[75vh] lg:w-[45%] object-cover  group-hover/card:shadow-xl"
+            className=" h-[30vh] lg:h-screen lg:w-[45%] object-cover  group-hover/card:shadow-xl"
             alt="thumbnail"
             loading="lazy"
           />
@@ -67,39 +84,40 @@ export default function Page({ params }: Props) {
                 About <span className=" text-blue-500">Emrancis</span>{" "}
               </h1>
               <p className=" mt-4 font-medium lg:text-lg">
-                We're constantly pushing the boundaries of what's possible and
-                seeking new ways to improve our services and help our clients
-                achieve their goals.
+                At Emrancis, we understand the pivotal role that programming
+                plays in {"today's"} digital landscape. Just like the language
+                of C, which laid the foundation for countless innovations in
+                computer science, we aim to equip our students with the
+                fundamental skills and knowledge to navigate the ever-evolving
+                realm of technology confidently.
               </p>
             </div>
             <div className=" "></div>
             <div>
-              <h3 className=" text-xl lg:text-2xl font-bold">Vision</h3>
+              <h3 className=" text-xl lg:text-2xl font-bold">
+                What Sets Us Apart
+              </h3>
               <p className=" lg:text-lg font-medium">
-                Our vision is to create a better financial future for everyone.
-                We believe that everyone deserves access to financial services
-                and resources that empower them to achieve their goals.
-              </p>
-            </div>
-            <div>
-              <h3 className=" text-xl lg:text-2xl font-bold">Mission</h3>
-              <p className=" lg:text-lg font-medium">
-                We're on a mission to empower people to take control of their
-                finances and achieve their goals. We believe that everyone
-                should have access to the tools and resources they have and make
-                smart financial decisions.
+                What sets Unlocking the Code apart is our holistic approach to
+                learning. We understand that mastering programming {"isn't"}{" "}
+                just about memorizing syntax; {"it's"} about cultivating
+                problem-solving skills, fostering creativity, and building
+                real-world projects that make an impact. {"That's"} why our
+                curriculum goes beyond the basics, offering hands-on projects
+                and practical experiences that empower our students to think
+                critically and innovate confidently.
               </p>
             </div>
           </motion.div>
         </motion.div>
       </div>
       <div className=" w-full py-[5vh] lg:py-[15vh]">
-        <div className=" w-[85%] flex lg:flex-row-reverse flex-col space-y-5 lg:space-y-0 justify-between items-center mx-auto">
+        <div className=" w-[85%] relative flex lg:flex-row-reverse flex-col space-y-5 lg:space-y-0 justify-between mx-auto">
           <Image
-            src="/pexels-jimmy-jimmy-1484806.jpg"
+            src="https://source.unsplash.com/blue-red-and-pink-abstract-artwork-7wBFsHWQDlk"
             height="1000"
             width="1000"
-            className=" h-[30vh] lg:h-[90vh] lg:w-[45%] rounded-xl object-cover  group-hover/card:shadow-xl"
+            className=" h-[30vh] lg:sticky lg:top-0 lg:h-screen lg:w-[45%] rounded-xl object-cover  group-hover/card:shadow-xl"
             alt="thumbnail"
             loading="lazy"
           />
@@ -117,12 +135,12 @@ export default function Page({ params }: Props) {
           >
             <div>
               <h1 className=" font-bold text-4xl lg:text-5xl">
-                Message from <span className=" text-blue-500">manager</span>{" "}
+                Message from <span className=" text-blue-500">ICT manager</span>{" "}
               </h1>
             </div>
             <p className=" mt-4 font-medium lg:text-lg">
               I would like to take a moment to express my sincere gratitude for
-              choosing our IT services. As the founder of this company, I am
+              choosing our IT services. As the ICT manager of this company, I am
               proud to say that we are committed to providing the best possible
               solutions for your business needs.
             </p>
@@ -170,9 +188,9 @@ export default function Page({ params }: Props) {
             }}
             initial="hidden"
             whileInView="visible"
-            className=" mt-[5vh] lg:mt-[10vh] gap-y-5 lg:gap-y-0 lg:gap-x-5 grid grid-cols-1 lg:grid-cols-4"
+            className=" mt-[5vh] lg:mt-[10vh] gap-y-5 lg:gap-y-0 lg:gap-x-5 grid grid-cols-1 lg:flex lg:justify-between lg:items-center "
           >
-            {[1, 2, 3, 4].map((item, idx) => {
+            {testimonials.map((item, idx) => {
               return (
                 <motion.div
                   variants={{
@@ -185,16 +203,16 @@ export default function Page({ params }: Props) {
                   key={idx}
                 >
                   <Image
-                    src="/pexels-jimmy-jimmy-1484806.jpg"
+                    src={item.profile}
                     height="1000"
                     width="1000"
-                    className=" h-[25vh] lg:h-[45vh] w-full rounded-xl object-cover  group-hover/card:shadow-xl"
+                    className={` h-[25vh] lg:h-[45vh] max-w-[${(100/testimonials.length) - 10}%] rounded-xl object-cover  group-hover/card:shadow-xl`}
                     alt="thumbnail"
                     loading="lazy"
                   />
                   <div className=" mt-4">
-                    <h1 className=" font-bold text-lg">Prince Jonathan</h1>
-                    <h2>ICT Manager</h2>
+                    <h1 className=" font-bold text- capitalize">{item.name}</h1>
+                    <h2 className=" capitalize">{item.occupation}</h2>
                   </div>
                 </motion.div>
               );

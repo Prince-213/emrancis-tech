@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { CheckCircle2, Facebook, Star } from "lucide-react";
 
-import { motion, AnimatePresence } from "framer-motion";
+import "./globals.css";
+
 import {
   GitHubLogoIcon,
   InstagramLogoIcon,
   TwitterLogoIcon,
 } from "@radix-ui/react-icons";
-import { useState } from "react";
 
-const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata: Metadata = {
   title: {

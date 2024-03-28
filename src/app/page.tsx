@@ -2,156 +2,38 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, {
-  LegacyRef,
-  useEffect,
-  useRef,
-  useState,
-  useLayoutEffect,
-  Component,
-} from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import Lenis from "@studio-freight/lenis";
+
 import SplitType from "split-type";
 import { InfiniteMovingCardsDemo } from "@/lib/components/inifinite";
 import { AnimatedPinDemo } from "@/lib/components/3d-pin";
-import { CheckCircle2, Facebook, Star } from "lucide-react";
+import { CheckCircle2, Star } from "lucide-react";
 
-import { StickyScroll } from "@/lib/components/ui/sticky-scroll-reveal";
 import { motion, useSpring, useAnimationControls } from "framer-motion";
 
-import {
-  GitHubLogoIcon,
-  InstagramLogoIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
 import { GlobeDemo } from "@/lib/components/globe";
 
-const content = [
-  {
-    title: "Collaborative Editing",
-    description:
-      "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
-    content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-        Collaborative Editing
-      </div>
-    ),
-    background:
-      "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
-  },
-  {
-    title: "Real time changes",
-    description:
-      "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
-    content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-        Realtime Changes
-      </div>
-    ),
-    background:
-      "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
-  },
-  {
-    title: "Version control",
-    description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
-    content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
-        Version control
-      </div>
-    ),
-    background:
-      "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
-  },
-  {
-    title: "Running out of content",
-    description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
-    content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-        Running out of content
-      </div>
-    ),
-    background:
-      "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
-  },
-];
 
-const testimonials: {
-  rating: number;
-  comment: string;
-  profile: string;
-  name: string;
-  position: string;
-}[] = [
-  {
-    rating: 5,
-    comment:
-      "We struggled for years to find an IT company that we could trust. While others would try to sell us IT solutions. We actually took the time to listen to what made us unique as a business.",
-    profile: "",
-    name: "",
-    position: "",
-  },
-  {
-    rating: 5,
-    comment:
-      "We struggled for years to find an IT company that we could trust. While others would try to sell us IT solutions. We actually took the time to listen to what made us unique as a business.   We struggled for years to find an IT company that we could trust.",
-    profile: "",
-    name: "",
-    position: "",
-  },
-  {
-    rating: 5,
-    comment:
-      "We struggled for years to find an IT company that we could trust. While others would try to sell us IT solutions. We actually took the time to listen to what made us unique as a business.",
-    profile: "",
-    name: "",
-    position: "",
-  },
-  {
-    rating: 5,
-    comment:
-      "We struggled for years to find an IT company that we could trust. While others would try to sell us IT solutions. We actually took the time to listen to what made us unique as a business. ",
-    profile: "",
-    name: "",
-    position: "",
-  },
-  {
-    rating: 5,
-    comment:
-      "We struggled for years to find an IT company that we could trust. While others would try to sell us IT solutions. We actually took the time to listen to what made us unique as a business. We struggled for years to find an IT company that we could trust.",
-    profile: "",
-    name: "",
-    position: "",
-  },
-  {
-    rating: 5,
-    comment:
-      "We struggled for years to find an IT company that we could trust. While others would try to sell us IT solutions. We actually took the time to listen to what made us unique as a business.",
-    profile: "",
-    name: "",
-    position: "",
-  },
-];
 
 export default function Home() {
   const root: any = useRef();
-  const animate = useAnimationControls()
 
   type TransformIdeas = {
+    tag: string;
     title: string;
     image: string;
     writeup: string;
     points: string[];
   };
 
-  const transfromIdeas: TransformIdeas[] = [
+  const transformIdeas: TransformIdeas[] = [
     {
+      tag: "Collect",
       title: "Collect Ideas",
       image:
-        "https://source.unsplash.com/black-flat-screen-computer-monitor-turned-on-displaying-website-koOdUvfGr4c",
+        "https://source.unsplash.com/person-holding-orange-flower-petals-5Q07sS54D0Q",
       writeup:
         "With Emrancis, you can create landing pages that convert more visitors than any other website. You can easily create a page using a variety of unique blocks.",
       points: [
@@ -161,30 +43,72 @@ export default function Home() {
       ],
     },
     {
+      tag: "Analyze",
       title: "Data Analysis",
       image:
-        "https://source.unsplash.com/black-flat-screen-computer-monitor-turned-on-displaying-website-koOdUvfGr4c",
+        "https://source.unsplash.com/turned-on-monitoring-screen-qwtCeJ5cLYs",
       writeup:
-        "With Emrancis, you can create landing pages that convert more visitors than any other website. You can easily create a page using a variety of unique blocks.",
+        "At Emrancis, we understand the crucial role data analysis plays in making informed decisions and driving successful outcomes in the tech industry. With our expertise in programming and project execution, we seamlessly integrate data analysis into our workflow to extract valuable insights and optimize our strategies. Here's a glimpse into our data analysis process, condensed into three essential steps.",
       points: [
-        "We collect ideas from different design inspirations.",
-        "Analysis data for any kind of corrections.",
-        "Finalize the product for the production to be done.",
+        "We collect data related to your idea and prepare them.",
+        "We explore and research intensively on the idea.",
+        "We engage in advanced analytics and decision making.",
       ],
     },
     {
+      tag: "Finalize",
       title: "Finalize Products",
       image:
-        "https://source.unsplash.com/black-flat-screen-computer-monitor-turned-on-displaying-website-koOdUvfGr4c",
+        "https://source.unsplash.com/a-person-sitting-at-a-table-using-a-laptop-computer-d3nKNw1ILdM",
       writeup:
-        "With Emrancis, you can create landing pages that convert more visitors than any other website. You can easily create a page using a variety of unique blocks.",
+        "At Emrancis, we pride ourselves on not only teaching programming but also delivering high-quality tech projects that exceed expectations. Our meticulous approach to finalizing projects and preparing them for production ensures seamless transitions from development to implementation. Here's a concise overview of our process, distilled into three essential steps.",
       points: [
-        "We collect ideas from different design inspirations.",
-        "Analysis data for any kind of corrections.",
-        "Finalize the product for the production to be done.",
+        "We commence the finalization process by conducting a comprehensive evaluation of the project.",
+        "We proceed to rigorous testing and quality assurance to validate its performance and reliability.",
+        "We focus on deployment and preparing it for production.",
       ],
     },
   ];
+
+  const testimonials = [
+    {
+      "name": "Prince Jonathan",
+      "occupation": "ICT Manager",
+      "review": "Exceptional teaching methods! The courses provided by Emrancis have significantly improved my programming skills. The instructors are knowledgeable, and the learning materials are well-structured. Highly recommend!",
+      "profile": 'https://source.unsplash.com/man-wearing-white-button-up-shirt-hAMJpesMeDE'
+    },
+    {
+      "name": "Kwame Boateng",
+      "occupation": "Software Engineer",
+      "review": "I've had an amazing experience learning from Emrancis. The instructors are passionate about teaching and go above and beyond to ensure understanding. The projects assigned are practical and helped me gain real-world experience.",
+      "profile": 'https://source.unsplash.com/a-man-with-a-mustache-P_jBxTIYGKg'
+    },
+    {
+      "name": "Chinonso Okonkwo",
+      "occupation": "Full Stack Developer",
+      "review": "I'm extremely satisfied with the quality of education provided by Emrancis. The curriculum covers a wide range of topics, and the hands-on approach helped me grasp complex concepts more effectively. Thank you for the invaluable learning experience!",
+      "profile": 'https://source.unsplash.com/a-man-with-his-hand-on-his-chin-Rz_8bZzlPc0'
+    },
+    {
+      "name": "Oluwaseun Adeyemi",
+      "occupation": "Backend Developer",
+      "review": "As someone with prior programming knowledge, I can confidently say that the courses offered by Emrancis exceeded my expectations. The instructors are experts in their field and offer personalized guidance to help students succeed. Highly recommended for anyone looking to advance their skills!",
+      "profile": 'https://source.unsplash.com/boy-in-green-and-white-adidas-soccer-jersey-cF6quSnBnQ4'
+    },
+    {
+      "name": "Okafor Francis",
+      "occupation": "CEO",
+      "review": "I'm impressed by the dedication and professionalism of the instructors. They make complex topics easy to understand and create a supportive learning environment. I've gained confidence in my programming abilities thanks to their guidance.",
+      "profile": 'https://source.unsplash.com/man-in-red-blue-and-white-plaid-dress-shirt-wearing-yellow-hat-holding-black-smartphone-xdS9XEoKBLY'
+    },
+    {
+      "name": "Okah Ifeanyi Livinus",
+      "occupation": "Project Manager",
+      "review": "Enrolling in courses was one of the best decisions I've made for my career. The practical knowledge gained has been instrumental in my role as a project manager. The instructors are highly skilled and passionate about teaching. I highly recommend their programs!",
+      "profile": 'https://source.unsplash.com/man-wearing-black-shirt-aoEwuEH7YAs'
+    }
+  ]
+  
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -194,13 +118,11 @@ export default function Home() {
       // all your animations go in here...
       let maintimeline = gsap.timeline();
 
-    gsap.from(text.chars, {
+      gsap.from(text.chars, {
         yPercent: 90,
         stagger: 0.1,
         ease: "power2.out",
-      }); 
-
-      
+      });
 
       const container = document.querySelector(".container");
       const sections = gsap.utils.toArray(".container section");
@@ -273,11 +195,10 @@ export default function Home() {
   return (
     <main ref={root} className=" bg-white w-full overflow-x-hidden font-space">
       <header className=" h-fit w-full bg-gradient-to-r from-[#F2F5F8] to-[#F0F0F0]">
-        <main className=" w-[90%]  lg:w-[85%]  mx-auto">
+        <main className=" w-[90%]  lg:w-[80%]  mx-auto">
           <div className=" pb-10 border-b-2 w-full flex lg:flex-row flex-col-reverse lg:justify-between lg:items-center">
             <div className=" flex-col mt-16 lg:mt-0 w-full flex gap-y-1 lg:w-[50%] ">
               <motion.h1
-              
                 id="title"
                 className=" text-[2rem] lg:text-6xl lg:text-left text-center overflow-hidden leading-[2.5rem] lg:leading-[4rem] font-bold"
               >
@@ -317,7 +238,7 @@ export default function Home() {
               <AnimatedPinDemo />
               <div className=" bg-white p-1 lg:hidden rounded-xl">
                 <Image
-                  src="https://source.unsplash.com/black-flat-screen-computer-monitor-turned-on-displaying-website-koOdUvfGr4c"
+                  src="https://source.unsplash.com/people-sitting-down-near-table-with-assorted-laptop-computers-SYTO3xs06fU"
                   height="1000"
                   width="1000"
                   className=" h-[30vh] lg:h-[56vh] w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -383,150 +304,52 @@ export default function Home() {
                 <rect className="mask" y="-49" height="99" fill="black" />
               </g>
             </svg>
-            <section className="sec1  items-center  justify-between pin text-left">
-              <div className="  lg:-translate-y-0 lg:w-[54%]">
-                <span>Advanced</span>
-                <h1 className=" font-semibold lg:text-4xl text-2xl">
-                  Collect Ideas
-                </h1>
+            {transformIdeas.map((item, idx) => {
+              return (
+                <section
+                  key={idx}
+                  className={`sec${
+                    idx + 1
+                  }  items-start  justify-between pin text-left`}
+                >
+                  <div className="  lg:-translate-y-0 lg:w-[54%]">
+                    <span>{item.tag}</span>
+                    <h1 className=" font-semibold lg:text-4xl text-2xl">
+                      {item.title}
+                    </h1>
 
-                <div className="col space-y-8 mt-2 ">
-                  <p className=" text-base lg:text-lg max-w-[90%]">
-                    With our Techty company, you can create landing pages that
-                    convert more visitors than any other website. You can easily
-                    create a page using a variety of unique blocks.
-                  </p>
-                  <div className=" flex flex-col space-y-2">
-                    <span className=" flex space-x-4 items-center">
-                      <CheckCircle2 strokeWidth="1px" />
-                      <p className=" text-base lg:text-lg font-medium">
-                        We collect ideas from different design inspirations.
-                      </p>
-                    </span>
-                    <span className=" flex space-x-4 items-center">
-                      <CheckCircle2 strokeWidth="1px" />
-                      <p className=" text-base lg:text-lg font-medium">
-                        We collect ideas from different design inspirations.
-                      </p>
-                    </span>
-                    <span className=" flex space-x-4 items-center">
-                      <CheckCircle2 strokeWidth="1px" />
-                      <p className=" text-base lg:text-lg font-medium">
-                        We collect ideas from different design inspirations.
-                      </p>
-                    </span>
+                    <div className="col space-y-8 mt-2 ">
+                      <p className=" text-base max-w-[90%]">{item.writeup}</p>
+                      <div className=" flex flex-col space-y-2">
+                        {item.points.map((item, idx) => {
+                          return (
+                            <span
+                              key={idx}
+                              className=" flex space-x-4 items-center"
+                            >
+                              <CheckCircle2 strokeWidth="1px" />
+                              <p className=" text-base font-medium">{item}</p>
+                            </span>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <button className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgb(0,119,255)] px-8 py-4 font-semibold mt-10 bg-blue-500 rounded-md text-white  transition duration-200 ease-linear">
+                      Get Started
+                    </button>
                   </div>
-                </div>
-
-                <button className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgb(0,119,255)] px-8 py-4 font-semibold mt-10 bg-blue-500 rounded-md text-white  transition duration-200 ease-linear">
-                  Get Started
-                </button>
-              </div>
-              <Image
-                src="https://source.unsplash.com/black-flat-screen-computer-monitor-turned-on-displaying-website-koOdUvfGr4c"
-                height="1000"
-                width="1000"
-                className=" h-[65vh] lg:block hidden w-[40%] object-cover rounded-xl group-hover/card:shadow-xl"
-                alt="thumbnail"
-                loading="lazy"
-              />
-            </section>
-            <section className="sec2  items-center  justify-between pin text-left">
-              <div className=" lg:w-[54%]">
-                <span className=" anim">Advanced</span>
-                <h1 className=" anim text-2xl lg:text-4xl font-semibold">
-                  Collect Ideas
-                </h1>
-
-                <div className="col space-y-8 mt-2 ">
-                  <p className=" anim text-base lg:text-lg max-w-[90%]">
-                    With our Techty company, you can create landing pages that
-                    convert more visitors than any other website. You can easily
-                    create a page using a variety of unique blocks.
-                  </p>
-                  <div className=" flex flex-col space-y-2">
-                    <span className=" flex space-x-4 items-center">
-                      <CheckCircle2 strokeWidth="1px" />
-                      <p className=" text-base lg:text-lg font-medium">
-                        We collect ideas from different design inspirations.
-                      </p>
-                    </span>
-                    <span className=" flex space-x-4 items-center">
-                      <CheckCircle2 strokeWidth="1px" />
-                      <p className=" text-base lg:text-lg font-medium">
-                        We collect ideas from different design inspirations.
-                      </p>
-                    </span>
-                    <span className=" flex space-x-4 items-center">
-                      <CheckCircle2 strokeWidth="1px" />
-                      <p className=" text-base lg:text-lg font-medium">
-                        We collect ideas from different design inspirations.
-                      </p>
-                    </span>
-                  </div>
-                </div>
-
-                <button className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgb(0,119,255)] px-8 py-4 font-semibold mt-10 bg-blue-500 rounded-md text-white  transition duration-200 ease-linear">
-                  Get Started
-                </button>
-              </div>
-              <Image
-                src="https://source.unsplash.com/black-flat-screen-computer-monitor-turned-on-displaying-website-koOdUvfGr4c"
-                height="1000"
-                width="1000"
-                className=" anim h-[65vh] hidden lg:block w-[40%] object-cover rounded-xl group-hover/card:shadow-xl"
-                alt="thumbnail"
-                loading="lazy"
-              />
-            </section>
-            <section className="sec3  items-center  justify-between pin text-left">
-              <div className=" lg:w-[54%]">
-                <span className=" anim">Advanced</span>
-                <h1 className=" anim text-2xl lg:text-4xl font-semibold">
-                  Collect Ideas
-                </h1>
-
-                <div className="col space-y-8 mt-2 ">
-                  <p className=" anim text-base lg:text-lg max-w-[90%]">
-                    With our Techty company, you can create landing pages that
-                    convert more visitors than any other website. You can easily
-                    create a page using a variety of unique blocks.
-                  </p>
-                  <div className=" flex flex-col space-y-2">
-                    <span className=" flex space-x-4 items-center">
-                      <CheckCircle2 strokeWidth="1px" />
-                      <p className=" text-base lg:text-lg font-medium">
-                        We collect ideas from different design inspirations.
-                      </p>
-                    </span>
-                    <span className=" flex space-x-4 items-center">
-                      <CheckCircle2 strokeWidth="1px" />
-                      <p className=" text-base lg:text-lg font-medium">
-                        We collect ideas from different design inspirations.
-                      </p>
-                    </span>
-                    <span className=" flex space-x-4 items-center">
-                      <CheckCircle2 strokeWidth="1px" />
-                      <p className=" text-base lg:text-lg font-medium">
-                        We collect ideas from different design inspirations.
-                      </p>
-                    </span>
-                  </div>
-                </div>
-
-                <button className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgb(0,119,255)] px-8 py-4 font-semibold mt-10 bg-blue-500 rounded-md text-white  transition duration-200 ease-linear">
-                  Get Started
-                </button>
-              </div>
-              <Image
-                src="https://source.unsplash.com/black-flat-screen-computer-monitor-turned-on-displaying-website-koOdUvfGr4c"
-                height="1000"
-                width="1000"
-                className=" anim h-[65vh] hidden lg:block w-[40%] object-cover rounded-xl group-hover/card:shadow-xl"
-                alt="thumbnail"
-                loading="lazy"
-              />
-            </section>
+                  <Image
+                    src={item.image}
+                    height="1000"
+                    width="1000"
+                    className=" h-[65vh] lg:block hidden w-[40%] object-cover rounded-xl group-hover/card:shadow-xl"
+                    alt="thumbnail"
+                    loading="lazy"
+                  />
+                </section>
+              );
+            })}
           </div>
         </div>
 
@@ -567,29 +390,102 @@ export default function Home() {
             viewport={{ once: true }}
             className=" lg:w-[60%] grid grid-cols-1 lg:grid-cols-3 mt-10 lg:mt-0 gap-y-10 lg:gap-y-0 lg:gap-x-10"
           >
-            {[1, 2, 3].map((item, idx) => {
-              return (
-                <motion.div
-                  key={idx}
-                  variants={{
-                    hidden: { y: 20, opacity: 0 },
-                    visible: {
-                      y: 0,
-                      opacity: 1,
-                    },
-                  }}
-                  className=" space-y-5 flex-col flex justify-center items-center lg:items-start lg:justify-start"
+            <motion.div
+              variants={{
+                hidden: { y: 20, opacity: 0 },
+                visible: {
+                  y: 0,
+                  opacity: 1,
+                },
+              }}
+              className=" space-y-5 flex-col flex justify-center items-center lg:items-start lg:justify-start"
+            >
+              <div className=" w-16 h-16 flex items-center justify-center rounded-[50%] bg-white text-blue-500">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <div className=" w-16 h-16 flex items-center justify-center rounded-[50%] bg-white text-blue-500">
-                    <CheckCircle2 size={"32px"} />
-                  </div>
-                  <h2 className=" text-xl font-bold">SEO Expert Team</h2>
-                  <p className=" text-base text-center lg:text-left">
-                    Creating products to meet our user needs and market demands.
-                  </p>
-                </motion.div>
-              );
-            })}
+                  <path
+                    d="M8.69667 0.0403541C8.90859 0.131038 9.03106 0.354857 8.99316 0.582235L8.0902 6.00001H12.5C12.6893 6.00001 12.8625 6.10701 12.9472 6.27641C13.0319 6.4458 13.0136 6.6485 12.8999 6.80001L6.89997 14.8C6.76167 14.9844 6.51521 15.0503 6.30328 14.9597C6.09135 14.869 5.96888 14.6452 6.00678 14.4178L6.90974 9H2.49999C2.31061 9 2.13748 8.893 2.05278 8.72361C1.96809 8.55422 1.98636 8.35151 2.09999 8.2L8.09997 0.200038C8.23828 0.0156255 8.48474 -0.0503301 8.69667 0.0403541ZM3.49999 8.00001H7.49997C7.64695 8.00001 7.78648 8.06467 7.88148 8.17682C7.97648 8.28896 8.01733 8.43723 7.99317 8.5822L7.33027 12.5596L11.5 7.00001H7.49997C7.353 7.00001 7.21347 6.93534 7.11846 6.8232C7.02346 6.71105 6.98261 6.56279 7.00678 6.41781L7.66968 2.44042L3.49999 8.00001Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+              <h2 className=" text-xl font-bold">SEO Expert Team</h2>
+              <p className=" text-base text-center lg:text-left">
+                Creating products to meet our user needs and market demands.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={{
+                hidden: { y: 20, opacity: 0 },
+                visible: {
+                  y: 0,
+                  opacity: 1,
+                },
+              }}
+              className=" space-y-5 flex-col flex justify-center items-center lg:items-start lg:justify-start"
+            >
+              <div className=" w-16 h-16 flex items-center justify-center rounded-[50%] bg-white text-blue-500">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.5 0C7.77614 0 8 0.223858 8 0.5V1.80687C10.6922 2.0935 12.8167 4.28012 13.0068 7H14.5C14.7761 7 15 7.22386 15 7.5C15 7.77614 14.7761 8 14.5 8H12.9888C12.7094 10.6244 10.6244 12.7094 8 12.9888V14.5C8 14.7761 7.77614 15 7.5 15C7.22386 15 7 14.7761 7 14.5V13.0068C4.28012 12.8167 2.0935 10.6922 1.80687 8H0.5C0.223858 8 0 7.77614 0 7.5C0 7.22386 0.223858 7 0.5 7H1.78886C1.98376 4.21166 4.21166 1.98376 7 1.78886V0.5C7 0.223858 7.22386 0 7.5 0ZM8 12.0322V9.5C8 9.22386 7.77614 9 7.5 9C7.22386 9 7 9.22386 7 9.5V12.054C4.80517 11.8689 3.04222 10.1668 2.76344 8H5.5C5.77614 8 6 7.77614 6 7.5C6 7.22386 5.77614 7 5.5 7H2.7417C2.93252 4.73662 4.73662 2.93252 7 2.7417V5.5C7 5.77614 7.22386 6 7.5 6C7.77614 6 8 5.77614 8 5.5V2.76344C10.1668 3.04222 11.8689 4.80517 12.054 7H9.5C9.22386 7 9 7.22386 9 7.5C9 7.77614 9.22386 8 9.5 8H12.0322C11.7621 10.0991 10.0991 11.7621 8 12.0322Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+              <h2 className=" text-xl font-bold">Strategic Planning</h2>
+              <p className=" text-base text-center lg:text-left">
+                Improving products to meet our user needs and market demands..
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={{
+                hidden: { y: 20, opacity: 0 },
+                visible: {
+                  y: 0,
+                  opacity: 1,
+                },
+              }}
+              className=" space-y-5 flex-col flex justify-center items-center lg:items-start lg:justify-start"
+            >
+              <div className=" w-16 h-16 flex items-center justify-center rounded-[50%] bg-white text-blue-500">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.50009 0.877014C3.84241 0.877014 0.877258 3.84216 0.877258 7.49984C0.877258 11.1575 3.8424 14.1227 7.50009 14.1227C11.1578 14.1227 14.1229 11.1575 14.1229 7.49984C14.1229 3.84216 11.1577 0.877014 7.50009 0.877014ZM1.82726 7.49984C1.82726 4.36683 4.36708 1.82701 7.50009 1.82701C10.6331 1.82701 13.1729 4.36683 13.1729 7.49984C13.1729 10.6328 10.6331 13.1727 7.50009 13.1727C4.36708 13.1727 1.82726 10.6328 1.82726 7.49984ZM8 4.50001C8 4.22387 7.77614 4.00001 7.5 4.00001C7.22386 4.00001 7 4.22387 7 4.50001V7.50001C7 7.63262 7.05268 7.7598 7.14645 7.85357L9.14645 9.85357C9.34171 10.0488 9.65829 10.0488 9.85355 9.85357C10.0488 9.65831 10.0488 9.34172 9.85355 9.14646L8 7.29291V4.50001Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+              <h2 className=" text-xl font-bold">24/7 Support</h2>
+              <p className=" text-base text-center lg:text-left">
+                We are ready to help you all all day and our customer service
+                are active.
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -617,13 +513,13 @@ export default function Home() {
               }}
               className=" text-pretty space-y-2 p-6 rounded-lg bg-white shadow-xl top-[30%] lg:top-[45%] lg:-right-[15%] -right-[10%] absolute lg:w-[20em] w-[15em] h-fit"
             >
-              <h1 className=" text-2xl lg:text-4xl font-bold">$840k</h1>
+              <h1 className=" text-2xl lg:text-4xl font-bold">₦120k</h1>
               <p className=" lg:text-base text-sm">
                 I want to learn everything that it takes to build an ecommerce
                 website{" "}
               </p>
               <p className=" bg-yellow-400 lg:text-base text-sm w-fit p-1 rounded-lg text-red-400 font-medium">
-                Fullstack Developmet
+                Fullstack Dev
               </p>
             </motion.div>
           </div>
@@ -659,11 +555,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className=" w-full lg:h-screen bg-[#171A1F]">
-        <div className=" w-[85%] flex lg:flex-row flex-col-reverse justify-between mx-auto py-[10vh] lg:py-[20vh]">
+      <section className=" w-full lg:min-h-screen bg-[#171A1F]">
+        <div className=" w-[85%] flex lg:flex-row flex-col-reverse justify-between mx-auto py-[10vh] lg:py-[15vh]">
           <div className=" space-y-10 lg:w-[40%]">
             <h1 className=" font-bold text-4xl text-center lg:text-left lg:text-5xl text-white">
-              Let's make your
+              {"Let's"} make your
               <span className=" text-blue-500"> business</span> &{" "}
               <span className=" text-blue-500">ideas</span> reach out.
             </h1>
@@ -684,7 +580,7 @@ export default function Home() {
                         fill="rgb(250 204 21)"
                         className=" text-yellow-400"
                       />
-                    )
+                    );
                   })}
                 </div>
               </div>
@@ -747,7 +643,7 @@ export default function Home() {
             initial="hidden"
             whileInView={"visible"}
             viewport={{ once: true }}
-            className=" w-full mt-10 space-y-5 grid lg:mt-20 lg:grid-cols-3 grid-cols-1 gap-5  "
+            className=" w-full mt-10 grid lg:mt-20 lg:grid-cols-3 place-content-start  items-start justify-start  grid-cols-1 gap-5  "
           >
             {testimonials.map((item, idx) => {
               return (
@@ -760,7 +656,10 @@ export default function Home() {
                     },
                   }}
                   key={idx}
-                  className={` h-fit  rounded-lg  border-2 p-10 ${idx == 0 ? 'mt-5' : ''} `}>
+                  className={` h-full mt-auto m-auto   rounded-lg  border-2 p-10 ${
+                    idx == 0 ? "lg:col-span-2" : ""
+                  } ${ idx == 3 ? " lg:col-span-2 " : "" } ${ idx == 5 ? " lg:col-span-2 " : "" } `}
+                >
                   <div className=" space-y-5">
                     <div className=" flex items-center space-x-2">
                       {[1, 2, 3, 4, 5].map((item, idx) => {
@@ -773,10 +672,10 @@ export default function Home() {
                         );
                       })}
                     </div>
-                    <p className=" text-lg font-medium">“{item.comment}”</p>
+                    <p className=" font-medium">“{item.review}”</p>
                     <div className=" flex items-center space-x-2">
                       <Image
-                        src="/pexels-jimmy-jimmy-1484806.jpg"
+                        src={item.profile}
                         height="1000"
                         width="1000"
                         className=" h-20 w-20 object-cover rounded-[50%] group-hover/card:shadow-xl"
@@ -785,9 +684,9 @@ export default function Home() {
                       />
                       <div>
                         <div className=" text-lg font-semibold">
-                          Jeff Harper
+                          {item.name}
                         </div>
-                        <p>Financial Analyst</p>
+                        <p>{item.occupation}</p>
                       </div>
                     </div>
                   </div>
