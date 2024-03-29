@@ -1,10 +1,16 @@
-"use client";
 
 
 import React from "react";
 
 import { Clock, Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Contact us "
+};
 
 interface Props {
   params: {

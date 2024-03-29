@@ -2,11 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('../lib/font/Outfit_Complete/Outfit_Complete/Fonts/WEB/css/outfit.css');
-@import url('../lib/font/Satoshi_Complete/Satoshi_Complete/Fonts/WEB/css/satoshi.css');
-@import url('../lib/font/SpaceGrotesk_Complete/SpaceGrotesk_Complete/Fonts/WEB/css/space-grotesk.css');
-@import url('../lib/font/Urbanist/stylesheet.css');
-@import url('../lib/font/Manrope/stylesheet.css');
+
 
 @layer base {
   :root {

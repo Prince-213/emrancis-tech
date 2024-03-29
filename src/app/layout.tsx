@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
 
+import { Space_Grotesk } from 'next/font/google'
+
+const space = Space_Grotesk({
+  weight: ['300','400','500','600','700'],
+  style: ['normal'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
 import "./globals.css";
 
 import {
@@ -27,7 +36,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className=" font-space">
+      <body className={` ${space.className}`}>
         <div className=" w-full overflow-x-hidden">
           
 

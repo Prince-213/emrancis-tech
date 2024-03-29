@@ -8,10 +8,11 @@ import {
 import { useRef } from "react";
 
 interface Props {
-    children: React.ReactNode
+    children: React.ReactNode,
+    delay?: number | 0.1
 }
 
-const Slide = ({ children }: Props) => {
+const Slide = ({ children, delay }: Props) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: .5 });
   const control = useAnimation();
@@ -34,7 +35,7 @@ const Slide = ({ children }: Props) => {
         type: "spring",
         duration: 0.3,
         damping: 8,
-        delay: 0.1,
+        delay: delay ? delay : 0.1,
         stiffness: 100,
       }}
       initial="hidden"

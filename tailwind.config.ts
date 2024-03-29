@@ -58,13 +58,6 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      fontFamily: {
-        outfit: ["Outfit-Variable", "system-ui"],
-        satoshi: ["Satoshi-Variable", "system-ui"],
-        space: ["SpaceGrotesk-Variable", "system-ui"],
-        urbanist: ["Urbanist", "system-ui"],
-        manrope: ["Manrope", "system-ui"],
-      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

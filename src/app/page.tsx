@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
@@ -15,6 +15,8 @@ import { motion, useSpring, useAnimationControls } from "framer-motion";
 
 import { GlobeDemo } from "@/lib/components/globe";
 import Slide from "@/lib/components/Slide";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Home() {
   const root: any = useRef();
@@ -119,7 +121,7 @@ export default function Home() {
     },
   ];
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const text = SplitType.create("#title");
 
@@ -127,10 +129,10 @@ export default function Home() {
       // all your animations go in here...
       let maintimeline = gsap.timeline();
 
-      gsap.from(text.chars, {
+      maintimeline.from(text.chars, {
         yPercent: 90,
         stagger: 0.1,
-        ease: "power2.out",
+        ease: "power3.out",
       });
 
       const container = document.querySelector(".container");
@@ -253,7 +255,7 @@ export default function Home() {
                   className=" h-[30vh] lg:h-[56vh] w-full object-cover rounded-xl group-hover/card:shadow-xl"
                   alt="thumbnail"
                   loading="lazy"
-                  placeholder="blur"
+                  placeholder="empty"
                 />
               </div>
             </motion.div>
@@ -356,7 +358,7 @@ export default function Home() {
                     className=" h-[65vh] lg:block hidden w-[40%] object-cover rounded-xl group-hover/card:shadow-xl"
                     alt="thumbnail"
                     loading="lazy"
-                  placeholder="blur"
+                    placeholder="empty"
                   />
                 </section>
               );
@@ -510,7 +512,7 @@ export default function Home() {
               className=" h-[30vh] lg:h-[65vh] pro-card w-full object-cover rounded-xl group-hover/card:shadow-xl"
               alt="thumbnail"
               loading="lazy"
-                  placeholder="blur"
+              placeholder="empty"
             />
             <motion.div
               variants={{
@@ -568,7 +570,7 @@ export default function Home() {
         </div>
       </section>
       <section className=" w-full lg:min-h-screen bg-[#171A1F]">
-        <div className=" w-[85%] flex lg:flex-row flex-col-reverse justify-between mx-auto py-[10vh] lg:py-[15vh]">
+        <div className=" w-[85%] flex lg:flex-row flex-col-reverse items-center justify-between mx-auto py-[10vh] lg:py-[15vh]">
           <div className=" space-y-10 lg:w-[40%]">
             <h1 className=" font-bold text-4xl text-center lg:text-left lg:text-5xl text-white">
               {"Let's"} make your
@@ -640,7 +642,7 @@ export default function Home() {
           <motion.div className=" w-full mt-10 grid lg:mt-20 lg:grid-cols-3 place-content-start  items-start justify-start  grid-cols-1 gap-5  ">
             {testimonials.map((item, idx) => {
               return (
-                <Slide key={idx}>
+                <Slide key={idx} delay={idx / 10}>
                   <motion.div
                     key={idx}
                     className={` h-full mt-auto m-auto   rounded-lg  border-2 p-10 ${
@@ -663,15 +665,11 @@ export default function Home() {
                       </div>
                       <p className=" font-medium">“{item.review}”</p>
                       <div className=" flex items-center space-x-2">
-                        <Image
-                          src={item.profile}
-                          height="1000"
-                          width="1000"
-                          className=" h-20 w-20 object-cover rounded-[50%] group-hover/card:shadow-xl"
-                          alt="thumbnail"
-                          loading="lazy"
-                  placeholder="blur"
-                        />
+                        <Avatar>
+                          <AvatarImage sizes="lg" src={item.profile} />
+                          <AvatarFallback>CN</AvatarFallback>
+                        </Avatar>
+
                         <div>
                           <div className=" text-lg font-semibold">
                             {item.name}
@@ -710,13 +708,13 @@ export default function Home() {
           <motion.div className=" w-full gap-6 mt-8 lg:mt-16  grid grid-cols-1 lg:grid-cols-3 ">
             {[1, 2, 3].map((item, idx) => {
               return (
-                <Slide key={idx}>
+                <Slide key={idx} delay={idx / 10}>
                   <Link href={`/blog/test`} key={idx}>
                     <motion.div
                       key={idx}
                       className=" min-h-fit mb-auto mt-0 overflow-hidden shadow-2xl shadow-[#00000021] rounded-2xl bg-white "
                     >
-                      <div className=" space-y-5">
+                      <div className=" ">
                         <Image
                           src="/pexels-jimmy-jimmy-1484806.jpg"
                           height="1000"
@@ -724,7 +722,7 @@ export default function Home() {
                           className=" h-[30vh] w-full object-cover  group-hover/card:shadow-xl"
                           alt="thumbnail"
                           loading="lazy"
-                  placeholder="blur"
+                          placeholder="empty"
                         />
 
                         <div className=" items-center p-5 space-y-4">
@@ -739,6 +737,22 @@ export default function Home() {
                             Let us manage your IT for you so that you can get
                             back to doing what you do best.
                           </p>
+                        </div>
+
+                        <div className=" p-5 flex items-center space-x-2">
+                          <Avatar>
+                            <AvatarImage
+                              sizes="lg"
+                              src="https://github.com/shadcn.png"
+                            />
+                            <AvatarFallback>CN</AvatarFallback>
+                          </Avatar>
+
+                          <div>
+                            <div className=" text-lg font-semibold">
+                              John Smith
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </motion.div>

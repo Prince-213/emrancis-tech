@@ -1,10 +1,17 @@
-"use client";
+
 
 import Image from "next/image";
 import React from "react";
 
 import { motion } from "framer-motion";
 import Slide from "@/lib/components/Slide";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "About emrancis tech"
+};
 
 interface Props {
   params: {
@@ -132,7 +139,7 @@ export default function Page({ params }: Props) {
             className=" h-[30vh] lg:sticky lg:top-0 lg:h-screen lg:w-[45%] rounded-xl object-cover  group-hover/card:shadow-xl"
             alt="thumbnail"
             loading="lazy"
-            placeholder="blur"
+            placeholder="empty"
           />
           <motion.div
             variants={{
@@ -198,7 +205,7 @@ export default function Page({ params }: Props) {
                       }%] rounded-xl object-cover  group-hover/card:shadow-xl`}
                       alt="thumbnail"
                       loading="lazy"
-                      placeholder="blur"
+                      placeholder="empty"
                     />
                     <div className=" mt-4">
                       <h1 className=" font-bold text- capitalize">

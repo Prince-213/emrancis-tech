@@ -15,7 +15,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
   
 
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+
     const lenis = new Lenis({
       duration: 0.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -28,11 +28,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     }
 
     requestAnimationFrame(raf);
-    let ctx = gsap.context(() => {
     
-    }, root); // <- scopes all selector text to the root element
-
-    return () => ctx.revert();
   });
 
   const controls = useAnimationControls()

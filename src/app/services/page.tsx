@@ -1,10 +1,16 @@
-"use client";
 
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { Tv, ArrowRight, CheckCircle, Clock2 } from "lucide-react";
 import { motion } from "framer-motion";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services",
+  description: "We offer a variety of services"
+};
 
 interface Props {
   params: {
