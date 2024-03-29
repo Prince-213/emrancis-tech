@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { motion } from "framer-motion";
+
 import Slide from "@/lib/components/Slide";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -36,14 +36,8 @@ export default function Page({ params }: Props) {
             </p>
           </div>
 
-          <motion.div
-            variants={{
-              hidden: { y: 20, opacity: 0 },
-              visible: {
-                y: 0,
-                opacity: 1,
-              },
-            }}
+          <div
+           
             className=" min-h-fit w-full mb-auto mt-10 lg:mt-14 flex lg:flex-row flex-col overflow-hidden shadow-2xl shadow-[#00000021] rounded-2xl bg-white "
           >
             <div className=" flex lg:flex-row flex-col w-full justify-between">
@@ -74,36 +68,28 @@ export default function Page({ params }: Props) {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
       <section className=" w-full  min-h-screen py-[5vh] lg:py-[15vh]">
         <div className=" w-[85%] mx-auto">
-          <motion.h1
-            variants={{
-              hidden: { y: 50, opacity: 0 },
-              visible: {
-                y: 0,
-                opacity: 1,
-              },
-            }}
-            initial="hidden"
-            whileInView={"visible"}
+          <h1
+            
             className=" clip text-4xl lg:text-5xl lg:max-w-[50%] mx-auto  font-bold text-center"
           >
             Read All Articles
-          </motion.h1>
+          </h1>
           <p className=" text-lg mt-5 text-center lg:w-[50%] mx-auto">
             {"We're"} constantly pushing the boundaries of {"what's"} possible
             and seeking new ways to improve our services.
           </p>
 
-          <motion.div className=" w-full gap-6 mt-8 lg:mt-16  grid grid-cols-1 lg:grid-cols-3 ">
+          <div className=" w-full gap-6 mt-8 lg:mt-16  grid grid-cols-1 lg:grid-cols-3 ">
             {[1, 2, 3, 4, 5, 6].map((item, idx) => {
               return (
                 <Slide key={idx} delay={idx / 10}>
                   <Link href={`/blog/test`} key={idx}>
-                    <motion.div
+                    <div
                       key={idx}
                       className=" min-h-fit mb-auto mt-0 overflow-hidden shadow-2xl shadow-[#00000021] rounded-2xl bg-white "
                     >
@@ -148,12 +134,12 @@ export default function Page({ params }: Props) {
                           </div>
                         </div>
                       </div>
-                    </motion.div>
+                    </div>
                   </Link>
                 </Slide>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

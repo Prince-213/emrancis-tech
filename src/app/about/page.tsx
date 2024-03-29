@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 import React from "react";
 
@@ -8,16 +6,16 @@ import Slide from "@/lib/components/Slide";
 
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "About",
-  description: "About emrancis tech"
-};
-
 interface Props {
   params: {
     id: string;
   };
 }
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "About us "
+};
 
 const testimonials = [
   {
@@ -52,22 +50,7 @@ export default function Page({ params }: Props) {
   return (
     <>
       <div className=" w-full bg-gradient-to-r from-[#F2F5F8] to-[#F0F0F0] py-[10vh]">
-        <motion.div
-          variants={{
-            hidden: { opacity: 1, scale: 0 },
-            visible: {
-              opacity: 1,
-              scale: 1,
-              transition: {
-                delayChildren: 0.1,
-                staggerChildren: 0.2,
-              },
-            },
-          }}
-          initial="hidden"
-          animate="visible"
-          className=" w-[85%] flex lg:flex-row flex-col space-y-8 lg:space-y-0 justify-between items-center mx-auto"
-        >
+        <div className=" w-[85%] flex lg:flex-row flex-col space-y-8 lg:space-y-0 justify-between items-center mx-auto">
           <Image
             src="https://source.unsplash.com/purple-and-black-checkered-illustration-m_7p45JfXQo"
             height="1000"
@@ -76,18 +59,7 @@ export default function Page({ params }: Props) {
             alt="thumbnail"
             loading="lazy"
           />
-          <motion.div
-            variants={{
-              hidden: { y: 20, opacity: 0 },
-              visible: {
-                y: 0,
-                opacity: 1,
-              },
-            }}
-            initial="hidden"
-            animate="visible"
-            className=" lg:w-[48%] space-y-5 lg:space-y-10"
-          >
+          <div className=" lg:w-[48%] space-y-5 lg:space-y-10">
             <div>
               <h1 className=" font-bold text-4xl lg:text-6xl">
                 About <span className=" text-blue-500">Emrancis</span>{" "}
@@ -127,8 +99,8 @@ export default function Page({ params }: Props) {
                 is here to guide you on your journey.
               </p>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
       <div className=" w-full py-[5vh] lg:py-[15vh]">
         <div className=" w-[85%] relative flex lg:flex-row-reverse flex-col space-y-5 lg:space-y-0 justify-between mx-auto">
@@ -141,18 +113,7 @@ export default function Page({ params }: Props) {
             loading="lazy"
             placeholder="empty"
           />
-          <motion.div
-            variants={{
-              hidden: { y: 20, opacity: 0 },
-              visible: {
-                y: 0,
-                opacity: 1,
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            className=" lg:w-[48%] space-y-4 lg:space-y-8"
-          >
+          <div className=" lg:w-[48%] space-y-4 lg:space-y-8">
             <div>
               <h1 className=" font-bold text-4xl lg:text-5xl">
                 Message from <span className=" text-blue-500">ICT manager</span>{" "}
@@ -181,7 +142,7 @@ export default function Page({ params }: Props) {
               <h1 className=" font-bold text-lg">Prince Jonathan</h1>
               <h2>ICT Manager</h2>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
       <div className=" w-full   ">
@@ -191,11 +152,11 @@ export default function Page({ params }: Props) {
             organization
           </h1>
 
-          <motion.div className=" mt-[5vh] lg:mt-[10vh] gap-y-5 lg:gap-y-0 lg:gap-x-5 grid grid-cols-1 lg:flex lg:justify-between lg:items-center ">
+          <div className=" mt-[5vh] lg:mt-[10vh] gap-y-5 lg:gap-y-0 lg:gap-x-5 grid grid-cols-1 lg:flex lg:justify-between lg:items-center ">
             {testimonials.map((item, idx) => {
               return (
                 <Slide key={idx}>
-                  <motion.div key={idx}>
+                  <div key={idx}>
                     <Image
                       src={item.profile}
                       height="1000"
@@ -213,11 +174,11 @@ export default function Page({ params }: Props) {
                       </h1>
                       <h2 className=" capitalize">{item.occupation}</h2>
                     </div>
-                  </motion.div>
+                  </div>
                 </Slide>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </div>
     </>

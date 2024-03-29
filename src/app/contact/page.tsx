@@ -3,7 +3,7 @@
 import React from "react";
 
 import { Clock, Mail, Phone, MapPin } from "lucide-react";
-import { motion } from "framer-motion";
+
 
 import type { Metadata } from "next";
 
@@ -34,14 +34,8 @@ export default function Page({ params }: Props) {
             </p>
           </div>
 
-          <motion.div
-            variants={{
-              hidden: { y: 20, opacity: 0 },
-              visible: {
-                y: 0,
-                opacity: 1,
-              },
-            }}
+          <div
+            
             className=" min-h-fit justify-between flex flex-col lg:flex-row space-y-8 lg:space-y-0  items-start w-full mb-auto mt-8 lg:mt-14  "
           >
             <div className=" lg:w-[45%]">
@@ -109,7 +103,7 @@ export default function Page({ params }: Props) {
                 </button>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </>

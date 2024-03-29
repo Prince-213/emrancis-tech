@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { Tv, ArrowRight, CheckCircle, Clock2 } from "lucide-react";
-import { motion } from "framer-motion";
 
 import type { Metadata } from "next";
 
@@ -69,36 +68,15 @@ export default function Page({ params }: Props) {
               achieve their goals.
             </p>
           </div>
-          <motion.div
-            variants={{
-              hidden: { opacity: 1 },
-              visible: {
-                opacity: 1,
-
-                transition: {
-                  delayChildren: 0.1,
-                  staggerChildren: 0.2,
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 20,
-                },
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
+          <div
+            
             className=" gap-y-6 lg:gap-x-6 mt-10 grid md:grid-cols-2 grid-cols-1  "
           >
             {services.map((item, idx) => {
               return (
                 <Link className=" h-full" key={idx} href={"/contact"}>
-                  <motion.div
-                    variants={{
-                      hidden: { y: 20, opacity: 0 },
-                      visible: {
-                        y: 0,
-                        opacity: 1,
-                      },
-                    }}
+                  <div
+                    
                     key={idx}
                     className=" bg-white px-6 group  py-10 rounded-lg"
                   >
@@ -116,11 +94,11 @@ export default function Page({ params }: Props) {
                         <ArrowRight />
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 </Link>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </div>
       <div className=" w-full bg-white py-[5vh] lg:py-[15vh]">
