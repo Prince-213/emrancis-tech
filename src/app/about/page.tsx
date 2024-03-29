@@ -155,7 +155,7 @@ export default function Page({ params }: Props) {
           <div className=" mt-[5vh] lg:mt-[10vh] gap-y-5 lg:gap-y-0 lg:gap-x-5 grid grid-cols-1 lg:flex lg:justify-between lg:items-center ">
             {testimonials.map((item, idx) => {
               return (
-                <Slide key={idx}>
+                <Slide key={idx} delay={idx/10}>
                   <div key={idx}>
                     <Image
                       src={item.profile}
