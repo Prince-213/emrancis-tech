@@ -395,8 +395,8 @@ export function GlobeDemo() {
   ];
 
   return (
-    <div className="flex flex-row items-center justify-center h-[35vh] lg:h-screen md:h-auto bg-transparent  relative w-full">
-      <div className=" mx-auto w-full relative   h-full md:h-[40rem] px-4">
+    <div className="flex flex-row items-center justify-center h-[35vh] lg:h-screen  md:h-auto bg-transparent  relative w-full">
+      <div className=" mx-auto w-[100vw] relative   h-full md:h-[40rem] px-4">
         <motion.div
           initial={{
             opacity: 0,
@@ -414,7 +414,7 @@ export function GlobeDemo() {
           
         </motion.div>
         
-        <div className="absolute w-full  h-[16rem] lg:min-h-screen md:h-full z-10">
+        <div className="absolute w-full  h-full lg:min-h-screen md:h-full z-10">
           <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
       </div>
