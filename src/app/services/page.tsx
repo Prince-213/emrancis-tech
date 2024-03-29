@@ -1,14 +1,14 @@
-
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { Tv, ArrowRight, CheckCircle, Clock2 } from "lucide-react";
 
 import type { Metadata } from "next";
+import { getCourses } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "We offer a variety of services"
+  description: "We offer a variety of services",
 };
 
 interface Props {
@@ -50,8 +50,12 @@ const services = [
   },
 ];
 
-export default function Page({ params }: Props) {
+export default async function Page({ params }: Props) {
   const { id } = params;
+
+  const courses = await getCourses();
+
+  console.log(courses);
 
   return (
     <>
@@ -68,15 +72,11 @@ export default function Page({ params }: Props) {
               achieve their goals.
             </p>
           </div>
-          <div
-            
-            className=" gap-y-6 lg:gap-x-6 mt-10 grid md:grid-cols-2 grid-cols-1  "
-          >
+          <div className=" gap-y-6 lg:gap-x-6 mt-10 grid md:grid-cols-2 grid-cols-1  ">
             {services.map((item, idx) => {
               return (
                 <Link className=" h-full" key={idx} href={"/contact"}>
                   <div
-                    
                     key={idx}
                     className=" bg-white px-6 group  py-10 rounded-lg"
                   >
@@ -108,46 +108,43 @@ export default function Page({ params }: Props) {
             package for you
           </h1>
 
-          {[1, 2].map((item, idx) => {
+          {courses.map((item, idx) => {
             return (
               <div key={idx}>
                 <div className=" mb-10 flex lg:flex-row flex-col lg:h-fit items-center justify-between w-full rounded-xl p-10 bg-gradient-to-r from-[#F2F5F8] to-[#F0F0F0]">
-                  <div className=" lg:w-[50%] space-y-6 lg:space-y-10 h-fit flex flex-col justify-between items-between">
+                  <div className=" lg:w-[60%]  space-y-6 lg:space-y-10 h-fit flex flex-col justify-between items-between">
                     <div>
                       <h1 className=" text-5xl font-bold">On-demand</h1>
-                      <p className=" text-lg mt-2">
-                        Get all these features when you are learning FrontEnd
-                        Development.
-                      </p>
+                      <p className=" text-lg mt-2">{item.description}</p>
                     </div>
-                    <div className=" text-base lg:flex lg:justify-between">
-                      <div>
+                    <div className=" text-base w-full lg:flex justify-between">
+                      <div className=" w-[60%]">
                         <h1 className=" font-semibold mb-3">You Will Learn</h1>
                         <div className=" grid lg:grid-cols-2 gap-4">
-                          {[1, 2, 3, 4, 5, 6].map((item, idx) => {
+                          {item.learn.map((item, idx) => {
                             return (
                               <div
                                 key={idx}
                                 className=" flex items-center space-x-2"
                               >
                                 <CheckCircle />
-                                <p>HTML, CSS</p>
+                                <p>{item}</p>
                               </div>
                             );
                           })}
                         </div>
                       </div>
-                      <div>
+                      <div className=" w-[40%]">
                         <h1 className=" font-semibold mb-3">Requirement</h1>
-                        <div className=" grid lg:grid-cols-2 gap-4">
-                          {[1].map((item, idx) => {
+                        <div className=" grid  gap-4">
+                          {item.required.map((item, idx) => {
                             return (
                               <div
                                 key={idx}
                                 className=" flex items-center space-x-2"
                               >
                                 <CheckCircle />
-                                <p>None</p>
+                                <p className=" text-sm">{item}</p>
                               </div>
                             );
                           })}
@@ -159,7 +156,7 @@ export default function Page({ params }: Props) {
                             className=" flex items-center space-x-2"
                           >
                             <Clock2 />
-                            <p>6 months</p>
+                            <p>{item.duration}</p>
                           </div>
                         </div>
                       </div>
@@ -167,9 +164,14 @@ export default function Page({ params }: Props) {
                   </div>
                   <div className=" w-full py-10 mt-8 lg:mt-0 lg:py-6 lg:w-[25%] space-y-5 flex flex-col items-center justify-center h-full rounded-lg bg-white">
                     <h2 className=" font-bold text-xl lg:text-2xl">
-                      FrontEnd Dev
+                      {item.title}
                     </h2>
-                    <h2 className=" font-bold text-4xl lg:text-6xl">₦120k</h2>
+                    <h2 className=" font-bold text-4xl lg:text-6xl">
+                      ₦
+                      {Intl.NumberFormat("en-US", {
+                        notation: "compact",
+                      }).format(item.price)}
+                    </h2>
                     <button className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgb(0,119,255)] px-8 py-4 font-semibold bg-blue-500 rounded-md text-white  transition duration-200 ease-linear">
                       Get Started
                     </button>

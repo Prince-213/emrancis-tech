@@ -17,6 +17,7 @@ import { GlobeDemo } from "@/lib/components/globe";
 import Slide from "@/lib/components/Slide";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ScrollDown } from "@/lib/components/scroll";
 
 export default function Home() {
   const root: any = useRef();
@@ -104,7 +105,7 @@ export default function Home() {
         "https://source.unsplash.com/boy-in-green-and-white-adidas-soccer-jersey-cF6quSnBnQ4",
     },
     {
-      name: "Okafor Francis",
+      name: "Okafor Emmanuel",
       occupation: "CEO",
       review:
         "I'm impressed by the dedication and professionalism of the instructors. They make complex topics easy to understand and create a supportive learning environment. I've gained confidence in my programming abilities thanks to their guidance.",
@@ -260,6 +261,7 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
+          
           <div className=" flex relative flex-col lg:flex-row space-y-5 lg:space-y-0 lg:space-x-5 py-16">
             <h1 className=" text-xl text-center lg:text-left max-w-[70%] mx-auto lg:max-w-full lg:text-2xl relative   font-semibold">
               We offer a variety of tech stacks

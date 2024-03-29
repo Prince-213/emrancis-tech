@@ -7,6 +7,7 @@ import { Clock, Mail, Phone, MapPin } from "lucide-react";
 
 import type { Metadata } from "next";
 
+
 export const metadata: Metadata = {
   title: "Contact",
   description: "Contact us "
@@ -50,6 +51,8 @@ export default function Page({ params }: Props) {
                     <p className=" font-bold text-lg">Toll Free Number</p>
                   </div>
                   <p>+234 9066211183</p>
+                  <p>+234 8127815878</p>
+                  <p>+234 9063804397</p>
                 </div>
                 <div className=" text-left flex flex-col space-y-5 justify-start">
                   <div className=" flex items-center space-x-4">
@@ -57,6 +60,7 @@ export default function Page({ params }: Props) {
 
                     <p className=" font-bold text-lg">Email Address</p>
                   </div>
+                  <p>emrancisgroup@gmail.com</p>
                   <p>princolosh@gmail.com</p>
                 </div>
                 <div className=" text-left flex flex-col space-y-5 justify-start">
@@ -73,10 +77,12 @@ export default function Page({ params }: Props) {
 
                     <p className=" font-bold text-lg">Office Address</p>
                   </div>
-                  <p>77408 Satterfield Motorway Suite 469 New York, USA.</p>
+                  <p>Forme ESUT AC building, Campus 3, Independence Layout Enugu, Nigeria.</p>
                 </div>
               </div>
+              
             </div>
+            
             <div className=" bg-white text-left p-8 rounded-xl shadow-2xl lg:w-[45%]">
               <h1 className=" text-xl lg:text-2xl mb-3 font-bold">Send Us A Message</h1>
               <p className=" lg:text-lg lg:max-w-[80%]">
