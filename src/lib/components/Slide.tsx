@@ -14,7 +14,7 @@ interface Props {
 
 const Slide = ({ children, delay }: Props) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: .5 });
+  const isInView = useInView(ref, { once: true, amount: .35 });
   const control = useAnimation();
 
   useEffect(() => {
