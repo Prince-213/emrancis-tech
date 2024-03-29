@@ -570,7 +570,7 @@ export default function Home() {
         </div>
       </section>
       <section className=" w-full lg:min-h-screen bg-[#171A1F]">
-        <div className=" w-[85%] flex lg:flex-row flex-col-reverse items-center justify-between mx-auto py-[10vh] lg:py-[15vh]">
+        <div className=" w-[85%] flex lg:flex-row flex-col-reverse items-center lg:justify-between mx-auto py-[10vh] lg:py-[15vh]">
           <div className=" space-y-10 lg:w-[40%]">
             <h1 className=" font-bold text-4xl text-center lg:text-left lg:text-5xl text-white">
               {"Let's"} make your
