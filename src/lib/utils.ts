@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { cache } from 'react'
 import prisma from "./db/prisma"
+import { Course, Courses } from "@/types"
  
 
 
@@ -33,6 +34,8 @@ export const getSpecificBlog = cache(async ( id: string ) => {
   })
   return courses
 })
+
+
 
 
 
