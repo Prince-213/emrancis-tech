@@ -8,11 +8,14 @@ import Slide from "./Slide";
 const GetFeaturedBlog = async (blogId: string): Promise<BlogData> => {
   unstable_noStore();
 
-  const res = await fetch(`https://emrancis-tech.vercel.app/api/get-blog/${blogId}`, {
-    next: {
-      revalidate: 60,
-    },
-  });
+  const res = await fetch(
+    `https://emrancis-tech.vercel.app/api/get-blog/${blogId}`,
+    {
+      next: {
+        revalidate: 60,
+      },
+    }
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -66,7 +69,7 @@ const BlogDetail = async ({ blogId }: { blogId: string }) => {
                 </h3>
                 {item.content.map((item, idx) => {
                   return (
-                    <Slide delay={idx/10} key={idx}>
+                    <Slide delay={idx / 10} key={idx}>
                       <p className=" leading-normal mb-4 lg:text-lg">{item}</p>
                     </Slide>
                   );
@@ -76,9 +79,11 @@ const BlogDetail = async ({ blogId }: { blogId: string }) => {
           );
         })}
 
-        <p className=" w-[80%] mt-5 text-left lg:text-lg">
-          {blogDetail.conclusion}
-        </p>
+        <Slide>
+          <p className=" w-[80%] mt-5 text-left lg:text-lg">
+            {blogDetail.conclusion}
+          </p>
+        </Slide>
       </div>
     </div>
   );
