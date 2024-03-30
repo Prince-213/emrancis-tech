@@ -12,3 +12,18 @@ export interface Course {
     duration: string
     price: number
 }
+
+export interface TopBlogs {
+    data: Daum[]
+  }
+  
+  export interface TopBlog {
+    id: string
+    date: string
+    category: string
+    title: string
+    cover_photo_url: string
+    conclusion: string
+    author_name: string
+  }
+  

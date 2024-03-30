@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
@@ -19,6 +19,8 @@ import Slide from "@/lib/components/Slide";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ScrollDown } from "@/lib/components/scroll";
 import { getTopBlogs } from "@/lib/utils";
+import TopBlogCards from "@/lib/components/topBlogs";
+import TopBlogSkeleton from "@/lib/components/top-blog-skeleton";
 
 export default function Home() {
   const root: any = useRef();
@@ -709,62 +711,9 @@ export default function Home() {
             <span className=" text-blue-500 ">news</span>
           </motion.h1>
 
-          <motion.div className=" w-full gap-6 mt-8 lg:mt-16  grid grid-cols-1 lg:grid-cols-3 ">
-            {[1, 2, 3].map((item, idx) => {
-              return (
-                <Slide key={idx} delay={idx / 10}>
-                  <Link href={`/blog/test`} key={idx}>
-                    <motion.div
-                      key={idx}
-                      className=" min-h-fit mb-auto mt-0 overflow-hidden shadow-2xl shadow-[#00000021] rounded-2xl bg-white "
-                    >
-                      <div className=" ">
-                        <Image
-                          src="/pexels-jimmy-jimmy-1484806.jpg"
-                          height="1000"
-                          width="1000"
-                          className=" h-[30vh] w-full object-cover  group-hover/card:shadow-xl"
-                          alt="thumbnail"
-                          loading="lazy"
-                          placeholder="empty"
-                        />
-
-                        <div className=" items-center p-5 space-y-4">
-                          <p className=" text-base font-medium text-gray-500">
-                            May 20, 2023
-                          </p>
-                          <h1 className=" text-2xl font-bold">
-                            5 reasons why Techty is the go-to choice for small
-                            business.
-                          </h1>
-                          <p className=" text-gray-700">
-                            Let us manage your IT for you so that you can get
-                            back to doing what you do best.
-                          </p>
-                        </div>
-
-                        <div className=" p-5 flex items-center space-x-2">
-                          <Avatar>
-                            <AvatarImage
-                              sizes="lg"
-                              src="https://github.com/shadcn.png"
-                            />
-                            <AvatarFallback>CN</AvatarFallback>
-                          </Avatar>
-
-                          <div>
-                            <div className=" text-lg font-semibold">
-                              John Smith
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </Link>
-                </Slide>
-              );
-            })}
-          </motion.div>
+          <Suspense fallback={<TopBlogSkeleton />}>
+            <TopBlogCards />
+          </Suspense>
         </div>
       </section>
     </main>
