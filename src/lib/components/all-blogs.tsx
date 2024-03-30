@@ -3,15 +3,15 @@ import Slide from "./Slide";
 import Link from "next/link";
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { unstable_noStore as noStore } from "next/cache";
+import { unstable_noStore as noStore} from "next/cache";
 import { TopBlog, TopBlogs } from "@/types";
 import { dateFormat } from "../utils";
 
-const GetTopBlogs = async (): Promise<TopBlog[]> => {
+const GetAllBlogs = async (): Promise<TopBlog[]> => {
   noStore();
 
-  const res = await fetch("https://emrancis-tech.vercel.app/api/top-blogs", {
-    next: { revalidate: 60 },
+  const res = await fetch("https://emrancis-tech.vercel.app/api/top-blogs/7", {
+    cache: "no-store",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -20,21 +20,22 @@ const GetTopBlogs = async (): Promise<TopBlog[]> => {
   return data.data;
 };
 
-const TopBlogCards = async () => {
+const AllBlogs = async () => {
   noStore();
-  const topBlogs = await GetTopBlogs();
+
+  const allBlogs = await GetAllBlogs();
 
   return (
     <div className=" w-full gap-6 mt-8 lg:mt-16  grid grid-cols-1 lg:grid-cols-3 ">
-      {topBlogs.map((item, idx) => {
+      {allBlogs.map((item, idx) => {
         return (
           <Slide key={idx} delay={idx / 10}>
             <Link href={`/blog/${item.id}`} key={idx}>
               <div
                 key={idx}
-                className=" h-full mb-auto mt-0 overflow-hidden shadow-2xl shadow-[#00000021] rounded-2xl bg-white "
+                className=" min-h-fit mb-auto mt-0 overflow-hidden shadow-2xl shadow-[#00000021] rounded-2xl bg-white "
               >
-                <div className=" flex flex-col min-h-full items-between justify-between ">
+                <div className=" ">
                   <Image
                     src={item.cover_photo_url}
                     height="1000"
@@ -49,7 +50,9 @@ const TopBlogCards = async () => {
                     <p className=" text-base font-medium text-gray-500">
                       {dateFormat(item.date)}
                     </p>
-                    <h1 className=" text-2xl font-bold">{item.title}</h1>
+                    <h1 className=" line-clamp-4 text-2xl font-bold">
+                      {item.title}
+                    </h1>
                     <p className=" text-gray-700 line-clamp-3">
                       {item.conclusion}
                     </p>
@@ -77,4 +80,4 @@ const TopBlogCards = async () => {
   );
 };
 
-export default TopBlogCards;
+export default AllBlogs;
