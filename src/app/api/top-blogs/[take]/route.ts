@@ -1,12 +1,13 @@
 import prisma from "@/lib/db/prisma";
 import { unstable_noStore as noStore } from "next/cache";
+import { NextRequest } from "next/server";
 
 interface Prop {
   take: string
 }
 
 
-export async function GET( context: { params: Prop } ) {
+export async function GET( request: NextRequest, context: { params: Prop } ) {
   noStore()
 
   const { take } = context.params
