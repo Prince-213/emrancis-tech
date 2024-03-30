@@ -23,7 +23,6 @@ import { getTopBlogs } from "@/lib/utils";
 export default function Home() {
   const root: any = useRef();
 
-  const topBlogs = getTopBlogs(3)
  
   type TransformIdeas = {
     tag: string;

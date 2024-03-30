@@ -3,10 +3,7 @@ import { twMerge } from "tailwind-merge"
 import { cache } from 'react'
 import prisma from "./db/prisma"
  
-export const getCourses = cache(async () => {
-  const courses = await prisma.courses.findMany()
-  return courses
-})
+
 
 export const getBlogs = cache(async () => {
   const blogs = await prisma.blogs.findMany({
