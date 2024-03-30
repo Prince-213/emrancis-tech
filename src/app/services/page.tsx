@@ -4,39 +4,31 @@ import Link from "next/link";
 import { Tv, ArrowRight, CheckCircle, Clock2 } from "lucide-react";
 import prisma from "@/lib/db/prisma";
 
+const getAllCourses = async () => {
+  try {
+    const data = await prisma.courses.findMany();
 
+    return data;
+  } catch (error) {}
+};
 
 import Slide from "@/lib/components/Slide";
 import { Loading } from "@/lib/components/loading";
-import { Courses, Course } from '@/types/index';
+import { Courses, Course } from "@/types/index";
 import { Metadata, ResolvingMetadata } from "next";
 
 export async function generateMetadata(
-  {  },
+  {},
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-  
- 
+
   // optionally access and extend (rather than replace) parent metadata
 
- 
   return {
     title: "Services",
-    
-  }
+  };
 }
-
-
-
-export const getCourses = async (): Promise<Course[]> => {
-  const res = await fetch("http://localhost:3000/api/all-courses", { cache: "force-cache" });
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-  const data: Courses = await res.json();
-  return data.data;
-};
 
 
 
@@ -82,7 +74,7 @@ const services = [
 export default async function Page({ params }: Props) {
   const { id } = params;
 
-  const courses = await getCourses();
+  const courses = await getAllCourses() || null
 
   console.log(courses);
 
@@ -138,7 +130,7 @@ export default async function Page({ params }: Props) {
           </h1>
 
           <Suspense fallback={<p className="">Loading...</p>}>
-            {courses.map((item: Course, idx) => {
+            {courses?.map((item, idx) => {
               return (
                 <Slide key={idx} delay={idx / 10}>
                   <div key={idx}>
