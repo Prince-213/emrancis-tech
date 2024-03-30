@@ -1,12 +1,16 @@
+import { unstable_noStore as noStore } from "next/cache";
+
 import { Course, Courses } from "@/types";
 import React, { Suspense } from "react";
 import Slide from "./Slide";
 import { Clock2, CheckCircle } from "lucide-react";
 import { CourseCardSkeleton } from "./skeleton";
 
-
 const GetCourses = async (): Promise<Course[]> => {
-  const res = await fetch("https://emrancis-tech.vercel.app/api/all-courses", { cache: "no-store" });
+  noStore();
+  const res = await fetch("https://emrancis-tech.vercel.app/api/all-courses", {
+    cache: "no-store",
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -17,7 +21,7 @@ const GetCourses = async (): Promise<Course[]> => {
 const CourseCard = async () => {
   const courses = await GetCourses();
 
-  console.log(courses)
+  console.log(courses);
 
   return (
     <div className=" w-full">

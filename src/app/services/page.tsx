@@ -1,8 +1,11 @@
+
+
 import Image from "next/image";
 import React, { Suspense } from "react";
 import Link from "next/link";
 import { Tv, ArrowRight, CheckCircle, Clock2 } from "lucide-react";
 import prisma from "@/lib/db/prisma";
+import { unstable_noStore as noStore } from "next/cache";
 
 import Slide from "@/lib/components/Slide";
 
@@ -10,9 +13,9 @@ import { Courses, Course } from "@/types/index";
 import { Metadata, ResolvingMetadata } from "next";
 
 import { CourseCardSkeleton } from "@/lib/components/skeleton";
-import dynamic from "next/dynamic";
 
-const CourseCard = dynamic(() => import('@/lib/components/services-cards'))
+
+import CourseCard from '@/lib/components/services-cards'
 
 export async function generateMetadata(
   {},
@@ -66,8 +69,12 @@ const services = [
   },
 ];
 
-const page = async ({ params }: Props) => {
+
+
+export default async function Page({ params }: Props) {
   const { id } = params;
+
+  noStore()
 
   return (
     <>
@@ -129,4 +136,5 @@ const page = async ({ params }: Props) => {
   );
 };
 
-export default page;
+
+
