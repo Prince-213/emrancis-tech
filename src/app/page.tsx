@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
@@ -18,10 +18,13 @@ import Slide from "@/lib/components/Slide";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ScrollDown } from "@/lib/components/scroll";
+import { getTopBlogs } from "@/lib/utils";
 
 export default function Home() {
   const root: any = useRef();
 
+  const topBlogs = getTopBlogs(3)
+ 
   type TransformIdeas = {
     tag: string;
     title: string;
@@ -768,3 +771,4 @@ export default function Home() {
     </main>
   );
 }
+

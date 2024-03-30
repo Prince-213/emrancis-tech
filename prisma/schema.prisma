@@ -4,10 +4,8 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
-
 generator client {
   provider = "prisma-client-js"
-  
 }
 
 datasource db {
@@ -24,4 +22,23 @@ model Courses {
   title       String
   duration    String
   price       Int
+}
+
+model Description {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  heading String
+  content String
+  Blogs   Blogs?  @relation(fields: [blogsId], references: [id])
+  blogsId String? @db.ObjectId
+}
+
+model Blogs {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  date            DateTime      @default(now())
+  category        String
+  title           String
+  cover_photo_url String
+  description     Description[]
+  conclusion      String
+  author_name     String
 }
