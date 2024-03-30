@@ -25,11 +25,11 @@ model Courses {
 }
 
 model Description {
-  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
   heading String
-  content String
-  Blogs   Blogs?  @relation(fields: [blogsId], references: [id])
-  blogsId String? @db.ObjectId
+  content String[]
+  Blogs   Blogs?   @relation(fields: [blogsId], references: [id])
+  blogsId String  @db.ObjectId
 }
 
 model Blogs {
