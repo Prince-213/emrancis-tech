@@ -8,8 +8,11 @@ import Slide from "@/lib/components/Slide";
 
 import { Courses, Course } from "@/types/index";
 import { Metadata, ResolvingMetadata } from "next";
-import CourseCard from "@/lib/components/services-cards";
+
 import { CourseCardSkeleton } from "@/lib/components/skeleton";
+import dynamic from "next/dynamic";
+
+const CourseCard = dynamic(() => import('@/lib/components/services-cards'))
 
 export async function generateMetadata(
   {},

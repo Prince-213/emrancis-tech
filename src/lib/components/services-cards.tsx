@@ -4,10 +4,9 @@ import Slide from "./Slide";
 import { Clock2, CheckCircle } from "lucide-react";
 import { CourseCardSkeleton } from "./skeleton";
 
+
 const GetCourses = async (): Promise<Course[]> => {
-  const res = await fetch("https://emrancis-tech.vercel.app/api/all-courses", {
-    next: { revalidate: 5 },
-  });
+  const res = await fetch("https://emrancis-tech.vercel.app/api/all-courses", { cache: "no-store" });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
