@@ -79,11 +79,14 @@ const BlogDetail = async ({ blogId }: { blogId: string }) => {
           );
         })}
 
-        <Slide>
-          <p className=" w-[80%] mt-5 text-left lg:text-lg">
+        <div className=" w-[80%]">
+          <Slide>
+          <p className=" mt-5 text-left lg:text-lg">
             {blogDetail.conclusion}
           </p>
         </Slide>
+        </div>
+        
       </div>
     </div>
   );
