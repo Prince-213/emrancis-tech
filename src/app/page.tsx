@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, {
+  Suspense,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
@@ -25,7 +31,6 @@ import TopBlogSkeleton from "@/lib/components/top-blog-skeleton";
 export default function Home() {
   const root: any = useRef();
 
- 
   type TransformIdeas = {
     tag: string;
     title: string;
@@ -265,7 +270,7 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
-          
+
           <div className=" flex relative flex-col lg:flex-row space-y-5 lg:space-y-0 lg:space-x-5 py-16">
             <h1 className=" text-xl text-center lg:text-left max-w-[70%] mx-auto lg:max-w-full lg:text-2xl relative   font-semibold">
               We offer a variety of tech stacks
@@ -692,7 +697,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className=" w-full bg-[#F2F5F8] min-h-screen py-[10vh] lg:py-[15vh]">
+      {/*  <section className=" w-full bg-[#F2F5F8] min-h-screen py-[10vh] lg:py-[15vh]">
         <div className=" w-[85%] mx-auto">
           <motion.h1
             variants={{
@@ -715,8 +720,7 @@ export default function Home() {
             <TopBlogCards />
           </Suspense>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
-
