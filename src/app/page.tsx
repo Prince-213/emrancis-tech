@@ -252,7 +252,7 @@ export default function Home() {
                   initial={{ y: "100%" }}
                   animate="visible"
                   variants={{
-                    visible: (i) => ({
+                    visible: (i: any) => ({
                       y: 0,
                       transition: {
                         delay: i * 0.1,
