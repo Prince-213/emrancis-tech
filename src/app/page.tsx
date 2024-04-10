@@ -17,7 +17,12 @@ import { InfiniteMovingCardsDemo } from "@/lib/components/inifinite";
 import { AnimatedPinDemo } from "@/lib/components/3d-pin";
 import { CheckCircle2, Star } from "lucide-react";
 
-import { motion, useSpring, useAnimationControls } from "framer-motion";
+import {
+  motion,
+  useSpring,
+  useAnimationControls,
+  animate,
+} from "framer-motion";
 
 import { GlobeDemo } from "@/lib/components/globe";
 import Slide from "@/lib/components/Slide";
@@ -27,6 +32,7 @@ import { ScrollDown } from "@/lib/components/scroll";
 import { getTopBlogs } from "@/lib/utils";
 import TopBlogCards from "@/lib/components/topBlogs";
 import TopBlogSkeleton from "@/lib/components/top-blog-skeleton";
+import { SplitText } from "@/lib/components/split-text";
 
 export default function Home() {
   const root: any = useRef();
@@ -131,7 +137,7 @@ export default function Home() {
     },
   ];
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const text = SplitType.create("#title");
 
@@ -139,18 +145,25 @@ export default function Home() {
       // all your animations go in here...
       let maintimeline = gsap.timeline();
 
-      maintimeline.from(text.chars, {
+      gsap.from(text.chars, {
         yPercent: 90,
         stagger: 0.1,
-        ease: "power3.out",
+        ease: "power4.out",
+        duration: 0.5,
       });
 
-      const container = document.querySelector(".container");
+      /* animate(
+        text.chars,
+        { opacity: [0, 1], y: [70, 0] },
+        { duration: 0.7, type: "spring", stiffness: 100, damping: 25 }
+      ); */
+
+      // const container = document.querySelector(".container");
       const sections = gsap.utils.toArray(".container section");
-      const texts = gsap.utils.toArray(".anim");
+      // const texts = gsap.utils.toArray(".anim");
       const mask = document.querySelector(".mask");
-      const ctaButton = gsap.utils.toArray(".cta");
-      const tl = gsap.timeline();
+      // const ctaButton = gsap.utils.toArray(".cta");
+      // const tl = gsap.timeline();
 
       let scrollTween = gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
@@ -219,13 +232,37 @@ export default function Home() {
         <main className=" w-[90%]  lg:w-[80%]  mx-auto">
           <div className=" pb-10 border-b-2 w-full flex lg:flex-row flex-col-reverse lg:justify-between lg:items-center">
             <div className=" flex-col mt-16 lg:mt-0 w-full flex gap-y-1 lg:w-[50%] ">
-              <motion.h1
+              {/* <motion.h1
+                transition={{
+                  staggerChildren: 0.4,
+                  delayChildren: 0.2,
+                }}
                 id="title"
                 className=" text-[2rem] lg:text-6xl lg:text-left text-center overflow-hidden leading-[2.5rem] lg:leading-[4rem] font-bold"
               >
-                Unlock <span className=" text-blue-500">Coding</span> Mastery
-                with Emrancis.
-              </motion.h1>
+                Unlock Coding Mastery with Emrancis.
+              </motion.h1> */}
+              <motion.div
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className=" text-[2rem] lg:text-6xl lg:text-left text-center overflow-hidden leading-[2.5rem] lg:leading-[4rem] font-bold "
+              >
+                <SplitText
+                  initial={{ y: "100%" }}
+                  animate="visible"
+                  variants={{
+                    visible: (i) => ({
+                      y: 0,
+                      transition: {
+                        delay: i * 0.1,
+                      },
+                    }),
+                  }}
+                >
+                  Unlock Coding Mastery with Emrancis.
+                </SplitText>
+              </motion.div>
               <p className=" text:base lg:text-left text-center lg:text-lg">
                 Welcome to your gateway to comprehensive programming education.
                 Whether you are a beginner or an experienced developer, our
