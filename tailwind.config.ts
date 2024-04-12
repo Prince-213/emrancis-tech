@@ -1,18 +1,17 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
-
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -85,11 +84,22 @@ const config = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
+        spotlight: {
+          "0%": {
+            opacity: "0",
+            transform: "translate(-100%, -22%) scale(0)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translate(-50%,-40%) scale(1)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         shimmer: "shimmer 2s linear infinite",
+        spotlight: "spotlight 3s ease .85s 1 forwards",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
@@ -98,7 +108,7 @@ const config = {
   plugins: [
     require("tailwindcss-animate"),
     addVariablesForColors,
-    
+
     require("tailwindcss/nesting"),
   ],
 } satisfies Config;
@@ -114,4 +124,4 @@ function addVariablesForColors({ addBase, theme }: any) {
   });
 }
 
-export default config
+export default config;

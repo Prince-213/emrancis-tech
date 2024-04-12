@@ -33,6 +33,8 @@ import { getTopBlogs } from "@/lib/utils";
 import TopBlogCards from "@/lib/components/topBlogs";
 import TopBlogSkeleton from "@/lib/components/top-blog-skeleton";
 import { SplitText } from "@/lib/components/split-text";
+import HeaderNav from "./_lib/ui/header";
+import FootorBar from "./_lib/ui/footer";
 
 export default function Home() {
   const root: any = useRef();
@@ -228,6 +230,7 @@ export default function Home() {
 
   return (
     <main ref={root} className=" bg-white w-full overflow-x-hidden font-space">
+      <HeaderNav />
       <header className=" h-fit w-full bg-gradient-to-r from-[#F2F5F8] to-[#F0F0F0]">
         <main className=" w-[90%]  lg:w-[80%]  mx-auto">
           <div className=" pb-10 border-b-2 w-full flex lg:flex-row flex-col-reverse lg:justify-between lg:items-center">
@@ -271,12 +274,17 @@ export default function Home() {
                 tech landscape.
               </p>
               <div className=" mt-6 flex lg:flex-row flex-col items-center space-y-5 lg:space-y-0  lg:space-x-6">
-                <button className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgb(0,119,255)] px-8 py-4 font-semibold bg-blue-500 rounded-md text-white  transition duration-200 ease-linear">
-                  Get Started
-                </button>
-                <button className="shadow-[0_0_0_3px_#000000e_inset] px-6 py-4 bg-transparent border border-[#00000027] dark:border-white dark:text-white text-black rounded-lg font-bold transform hover:-translate-y-1 transition duration-400">
-                  Hire an expert
-                </button>
+                <Link href={"/login"}>
+                  <button className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgb(0,119,255)] px-8 py-4 font-semibold bg-blue-500 rounded-md text-white  transition duration-200 ease-linear">
+                    Get Started
+                  </button>
+                </Link>
+
+                <Link href={"/services"}>
+                  <button className="shadow-[0_0_0_3px_#000000e_inset] px-6 py-4 bg-transparent border border-[#00000027] dark:border-white dark:text-white text-black rounded-lg font-bold transform hover:-translate-y-1 transition duration-400">
+                    Available Courses
+                  </button>
+                </Link>
               </div>
             </div>
             <motion.div
@@ -758,6 +766,7 @@ export default function Home() {
           </Suspense>
         </div>
       </section> */}
+      <FootorBar />
     </main>
   );
 }
