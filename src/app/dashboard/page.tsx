@@ -2,7 +2,7 @@ import React from "react";
 import { Calendar, ClipboardList, DownloadCloud, File } from "lucide-react";
 import { AvatarGroup } from "../_lib/ui/dashboard/avatar-group";
 import TaskCard from "../_lib/ui/dashboard/task-card";
-import { CalendarDemo } from "../_lib/ui/dashboard/month-select";
+
 import Image from "next/image";
 
 const DashboardPage = () => {
