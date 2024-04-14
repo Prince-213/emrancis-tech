@@ -4,7 +4,11 @@ import { useFormStatus } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { Loader2Icon } from "lucide-react";
 
-export function FormButton() {
+interface Prop {
+  text: string;
+}
+
+export function FormButton({ text }: Prop) {
   "use client";
   const { pending } = useFormStatus();
 
@@ -21,7 +25,7 @@ export function FormButton() {
       {pending ? (
         <Loader2Icon className=" animate-spin w-8 h-8 text-white mr-4" />
       ) : null}{" "}
-      {pending ? "Loggin in..." : "Log in"}
+      {text}
     </Button>
   );
 }

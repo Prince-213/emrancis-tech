@@ -14,7 +14,9 @@ export default function Page() {
       </span> */}
       <div className=" w-[90%] mt-[15vh] pl-6 mx-auto">
         <div className=" flex flex-col space-y-1 max-w-fit">
-          <h1 className=" font-medium text-3xl">Log into your Dashboard</h1>
+          <h1 className=" font-medium text-3xl">
+            Create an account and get started
+          </h1>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="120.63932"
@@ -30,6 +32,18 @@ export default function Page() {
           </svg>
         </div>
         <form action={logIn} className=" mt-10 space-y-4 w-[90%] ">
+          <div className="grid w-full items-center gap-1.5">
+            <Label htmlFor="email" className=" text-lg font-medium">
+              Username
+            </Label>
+            <Input
+              type="text"
+              id="email"
+              name="username"
+              placeholder="Enter a username..."
+              className=" h-14 border-2"
+            />
+          </div>
           <div className="grid w-full items-center gap-1.5">
             <Label htmlFor="email" className=" text-lg font-medium">
               Email Address
@@ -54,14 +68,14 @@ export default function Page() {
               className=" h-14 border-2"
             />
           </div>
-          <FormButton text={"Log In"} />
+          <FormButton text={"Create Account"} />
         </form>
 
         <br />
         <p className=" text-gray-500 text-lg">
-          Dont have an account?{" "}
+          Do you have an account?{" "}
           <span className=" text-black font-semibold">
-            <Link href={"/signin"}>Create an account here.</Link>
+            <Link href={"/login"}>Log in</Link>
           </span>
         </p>
       </div>

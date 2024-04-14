@@ -20,11 +20,11 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className={` ${space.className}  w-full flex justify-between overflow-hidden h-screen `}
+      className={` ${space.className} relative  w-full flex justify-between overflow-hidden h-screen `}
     >
-      <div className=" w-[45%] pt-10 h-screen">{children}</div>
+      <div className=" w-[45%] flex flex-col h-screen">{children}</div>
 
-      <div className=" relative overflow-hidden   w-[55%] h-full">
+      <div className=" sticky top-0 overflow-hidden   w-[55%] h-screen">
         <SpotlightPreview />
       </div>
     </div>
