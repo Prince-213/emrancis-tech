@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -79,13 +77,12 @@
 
 #title {
   position: relative;
- 
 }
 
-.word, .clip {
+.word,
+.clip {
   overflow: hidden;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  
 }
 
 .wrapper {
@@ -103,56 +100,57 @@
   width: 50vw;
 
   .mask {
-      width: 0;
+    width: 0;
   }
 }
 
 .container {
   display: flex;
   width: 300vw;
-
-  
 }
 
-
+#trap-poster {
+  clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+}
 
 .container section {
   width: 100vw;
-  
+
   padding-top: 5vw;
   padding-bottom: 10vw;
-  padding-right: 10vw
+  padding-right: 10vw;
 }
-
 
 section h1 {
-  
   margin: 0;
 }
-
-
 
 section ul {
   list-style-type: none;
   display: flex;
   gap: 3em;
   width: 100%;
-  
-  padding: 0;
 
-  
+  padding: 0;
 }
 
 section ul li {
   background: white;
-  border-radius: .3em;
+  border-radius: 0.3em;
   flex-grow: 1;
 }
 
 section {
-  
   min-width: 100vw;
   display: flex;
   flex-direction: row-reverse;
-  background-color: 'blue'
+  background-color: "blue";
+}
+
+.side {
+  .sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
 }

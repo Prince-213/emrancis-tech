@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Blog, BlogData, TopBlog, TopBlogs } from "@/types";
 import { dateFormat } from "../utils";
 import Slide from "./Slide";
+import { QuoteIcon } from "@radix-ui/react-icons";
 
 const GetFeaturedBlog = async (blogId: string): Promise<BlogData> => {
   unstable_noStore();
@@ -12,7 +13,7 @@ const GetFeaturedBlog = async (blogId: string): Promise<BlogData> => {
     `https://emrancis-tech.vercel.app/api/get-blog/${blogId}`,
     {
       next: {
-        revalidate: 60,
+        revalidate: 10,
       },
     }
   );
@@ -31,33 +32,88 @@ const BlogDetail = async ({ blogId }: { blogId: string }) => {
   console.log(blogDetail);
 
   return (
-    <div className=" w-full bg-gradient-to-r from-[#F2F5F8] to-[#F0F0F0] pt-[10vh] pb-[15vh]">
-      <div className=" w-[85%] text-center flex flex-col justify-center items-center  mx-auto">
-        <div className=" lg:w-[75%] mx-auto space-y-5 ">
-          <p className=" text-base">
-            {dateFormat(blogDetail.date)} / {blogDetail.category}
-          </p>
-          <h1 className=" font-bold text-4xl lg:text-6xl ">
+    <div className=" w-full bg-gradient-to-r from-[#F2F5F8] to-[#F0F0F0] pt-[5vh] pb-[15vh]">
+      <div className=" w-[70%] flex flex-col  mx-auto">
+        <div className="  space-y-5 ">
+          <div className=" flex  space-x-6">
+            <div className=" flex items-center space-x-1">
+              <p className=" text-lg font-medium text-blue-800">
+                {blogDetail.category}
+              </p>
+              <div className=" w-8 h-[3px] rounded-3xl bg-blue-800" />
+            </div>
+            <p className=" text-base">Posted {dateFormat(blogDetail.date)}</p>
+          </div>
+
+          <h1 className="w-full font-semibold text-4xl lg:text-6xl ">
             {blogDetail.title}
           </h1>
         </div>
 
-        <div className=" min-h-fit w-full mb-auto mt-10 lg:mt-20 flex overflow-hidden shadow-2xl shadow-[#00000021] rounded-2xl bg-white ">
-          <div className=" w-full ">
-            <div className=" full">
-              <Image
-                src={blogDetail.cover_photo_url}
-                height="1000"
-                width="1000"
-                className=" h-[40vh] lg:h-[90vh] w-full object-cover  group-hover/card:shadow-xl"
-                alt="thumbnail"
-                loading="lazy"
-              />
-            </div>
-          </div>
+        <div
+          id="trap-poster"
+          className=" h-[40vh] lg:h-[80vh] w-full mb-auto mt-5 lg:mt-8 flex overflow-hidden shadow-2xl shadow-[#00000021]   "
+        >
+          <Image
+            src={blogDetail.cover_photo_url}
+            width={1000}
+            height={400}
+            className=" w-full h-full"
+            alt="thumbnail"
+            loading="lazy"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+          />
         </div>
 
-        {blogDetail.description.map((item, idx) => {
+        <div className="">
+          {blogDetail.description.map((item, idx) => {
+            return (
+              <div key={idx} className=" w-full">
+                <div
+                  key={idx}
+                  className=" relative mt-10 w-full grid grid-cols-2 lg:gap-x-10 gap-x-5"
+                >
+                  <div className=" flex space-x-4 items-start  font-semibold max-h-fit ">
+                    <QuoteIcon className=" w-32 h-32 rotate-180 -translate-y-10 text-blue-800" />
+                    <h1 className=" lg:text-5xl text-3xl text-pretty leading-[3rem]  lg:leading-[5rem]">
+                      {item.heading}
+                    </h1>
+                  </div>
+
+                  <div className=" pt-1">
+                    <p
+                      key={idx}
+                      className=" text-pretty lg:text-xl  text-gray-600 text-base lg:leading-[2.5rem]"
+                    >
+                      {item.content[0]}
+                    </p>
+                  </div>
+                </div>
+                <div className=" mt-10 pt-1 space-y-6">
+                  {item.content.slice(1).map((item, idx) => {
+                    return (
+                      <p
+                        key={idx}
+                        className=" mb-5 leading-[2rem] text-pretty text-base lg:text-xl  text-gray-600 lg:leading-[2.5rem]"
+                      >
+                        {item}
+                      </p>
+                    );
+                  })}
+
+                  <p className=" mb-5 leading-[2rem] text-pretty text-base lg:text-xl  text-gray-600 lg:leading-[2.5rem]">
+                    {blogDetail.conclusion}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* {blogDetail.description.map((item, idx) => {
           return (
             <Slide key={idx}>
               <div
@@ -77,16 +133,15 @@ const BlogDetail = async ({ blogId }: { blogId: string }) => {
               </div>
             </Slide>
           );
-        })}
+        })} */}
 
-        <div className=" w-[80%]">
+        {/* <div className=" w-[80%]">
           <Slide>
-          <p className=" mt-5 text-left lg:text-lg">
-            {blogDetail.conclusion}
-          </p>
-        </Slide>
-        </div>
-        
+            <p className=" mt-5 text-left lg:text-lg">
+              {blogDetail.conclusion}
+            </p>
+          </Slide>
+        </div> */}
       </div>
     </div>
   );
