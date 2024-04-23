@@ -61,7 +61,7 @@ export default function Page({ params }: Props) {
                     <p className=" font-bold text-lg">Email Address</p>
                   </div>
                   <p>emrancisgroup@gmail.com</p>
-                  <p>princolosh@gmail.com</p>
+                  
                 </div>
                 <div className=" text-left flex flex-col space-y-5 justify-start">
                   <div className=" flex items-center space-x-4">
