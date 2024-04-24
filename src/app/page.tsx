@@ -231,6 +231,7 @@ export default function Home() {
   return (
     <main ref={root} className=" bg-white w-full overflow-x-hidden font-space">
       <HeaderNav />
+
       <header className=" h-fit w-full bg-gradient-to-r from-[#F2F5F8] to-[#F0F0F0]">
         <main className=" w-[90%]  lg:w-[80%]  mx-auto">
           <div className=" pb-10 border-b-2 w-full flex lg:flex-row flex-col-reverse lg:justify-between lg:items-center">

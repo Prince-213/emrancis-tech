@@ -13,8 +13,8 @@ interface Props {
 }
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "About us "
+  title: "About Emrancis Group",
+  description: "This is an insight on Emrancis group "
 };
 
 const testimonials = [

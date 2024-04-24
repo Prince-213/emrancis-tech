@@ -13,7 +13,7 @@ const GetFeaturedBlog = async (blogId: string): Promise<BlogData> => {
     `https://emrancis-tech.vercel.app/api/get-blog/${blogId}`,
     {
       next: {
-        revalidate: 10,
+        revalidate: 60,
       },
     }
   );
@@ -86,7 +86,7 @@ const BlogDetail = async ({ blogId }: { blogId: string }) => {
                   <div className=" pt-1">
                     <p
                       key={idx}
-                      className=" text-pretty lg:text-xl  text-gray-600 text-base lg:leading-[2.5rem]"
+                      className=" text-pretty lg:text-2xl  text-gray-600 text-lg lg:leading-[2.5rem]"
                     >
                       {item.content[0]}
                     </p>

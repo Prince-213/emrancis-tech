@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 import React, { Suspense } from "react";
 import Link from "next/link";
@@ -14,21 +12,12 @@ import { Metadata, ResolvingMetadata } from "next";
 
 import { CourseCardSkeleton } from "@/lib/components/skeleton";
 
+import CourseCard from "@/lib/components/services-cards";
 
-import CourseCard from '@/lib/components/services-cards'
-
-export async function generateMetadata(
-  {},
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  // read route params
-
-  // optionally access and extend (rather than replace) parent metadata
-
-  return {
-    title: "Services",
-  };
-}
+export const metadata: Metadata = {
+  title: "Services",
+  description: "Services we offer ",
+};
 
 interface Props {
   params: {
@@ -69,12 +58,10 @@ const services = [
   },
 ];
 
-
-
 export default async function Page({ params }: Props) {
   const { id } = params;
 
-  noStore()
+  noStore();
 
   return (
     <>
@@ -134,7 +121,4 @@ export default async function Page({ params }: Props) {
       </div>
     </>
   );
-};
-
-
-
+}
