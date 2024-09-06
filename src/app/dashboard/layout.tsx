@@ -1,5 +1,4 @@
 "use client";
-
 import clsx from "clsx";
 import {
   ChevronUp,
@@ -17,7 +16,7 @@ import {
   Settings,
   User,
   ChevronDown,
-  LucideMenu,
+  LucideMenu
 } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -37,32 +36,32 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Home
           fill={activePath ? "white" : ""}
           className={clsx(" w-5 h-5", {
-            " text-black": activePath == "/dashboard",
+            " text-black": activePath == "/dashboard"
           })}
         />
-      ),
+      )
     },
     {
       name: "Message",
       href: "/dashboard/message",
-      icon: <Mail className=" w-5 h-5" />,
+      icon: <Mail className=" w-5 h-5" />
     },
     {
       name: "My Tasks",
       href: "/dashboard/tasks",
-      icon: <ClipboardIcon className=" w-5 h-5" />,
+      icon: <ClipboardIcon className=" w-5 h-5" />
     },
     {
       name: "Collegues",
       href: "/dashboard/friends",
-      icon: <UsersRound className=" w-5 h-5" />,
+      icon: <UsersRound className=" w-5 h-5" />
     },
 
     {
       name: "Calendar",
       href: "/dashboard/calendar",
-      icon: <CalendarIcon className=" w-5 h-5" />,
-    },
+      icon: <CalendarIcon className=" w-5 h-5" />
+    }
   ];
 
   return (
@@ -96,7 +95,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     {
                       " text-white hover:shadow-md hover:shadow-[#0000004e] bg-[#141414]  ":
                         link.href == activePath,
-                      " hover:text-black": link.href != activePath,
+                      " hover:text-black": link.href != activePath
                     }
                   )}
                 >
@@ -139,7 +138,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Search className=" w-8 h-8" />
             <Image
               src={
-                "https://source.unsplash.com/a-woman-wearing-glasses-and-a-suit-geTGVJsR6EA"
+                "https://images.unsplash.com/photo-1680536555364-9dd4a1ab313e?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               }
               width={50}
               height={50}
@@ -147,7 +146,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               alt=""
               style={{
                 objectFit: "cover",
-                objectPosition: "center",
+                objectPosition: "center"
               }}
             />
           </div>
@@ -155,13 +154,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <button className=" w-[25%] relative overflow-hidden p-1 flex items-center justify-center h-14 bg-[#f5f5f5] rounded-[50%]">
               <Image
                 src={
-                  "https://source.unsplash.com/a-woman-wearing-glasses-and-a-suit-geTGVJsR6EA"
+                  "https://images.unsplash.com/photo-1680536555364-9dd4a1ab313e?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 }
                 fill
                 alt=""
                 style={{
                   objectFit: "cover",
-                  objectPosition: "center",
+                  objectPosition: "center"
                 }}
               />
             </button>

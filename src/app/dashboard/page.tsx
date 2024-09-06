@@ -95,7 +95,7 @@ const DashboardPage = () => {
           <div className=" max-h-fit bg-[#f5f5f5] p-3 flex  space-x-5 w-full rounded-lg">
             <Image
               src={
-                "https://source.unsplash.com/turned-on-monitoring-screen-qwtCeJ5cLYs"
+                "https://images.unsplash.com/photo-1680536555364-9dd4a1ab313e?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               }
               alt=""
               width={70}
