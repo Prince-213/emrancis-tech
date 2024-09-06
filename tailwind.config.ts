@@ -1,7 +1,10 @@
 import type { Config } from "tailwindcss";
+/** @type {import('tailwindcss').Config} */
+
+const flowbite = require("flowbite-react/tailwind");
 
 const {
-  default: flattenColorPalette,
+  default: flattenColorPalette
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
 const config = {
@@ -11,6 +14,7 @@ const config = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    flowbite.content()
   ],
   prefix: "",
   theme: {
@@ -18,11 +22,13 @@ const config = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
-      },
+        "2xl": "1400px"
+      }
     },
     extend: {
       colors: {
+        "site-blue": "#318CE7",
+        "site-grey": "#F2F2F26E",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -30,70 +36,70 @@ const config = {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          foreground: "hsl(var(--primary-foreground))"
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          foreground: "hsl(var(--secondary-foreground))"
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          foreground: "hsl(var(--destructive-foreground))"
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          foreground: "hsl(var(--muted-foreground))"
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          foreground: "hsl(var(--accent-foreground))"
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          foreground: "hsl(var(--popover-foreground))"
         },
         card: {
           DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+          foreground: "hsl(var(--card-foreground))"
+        }
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 4px)"
       },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "var(--radix-accordion-content-height)" }
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          to: { height: "0" }
         },
         shimmer: {
           from: {
-            backgroundPosition: "0 0",
+            backgroundPosition: "0 0"
           },
           to: {
-            backgroundPosition: "-200% 0",
-          },
+            backgroundPosition: "-200% 0"
+          }
         },
         scroll: {
           to: {
-            transform: "translate(calc(-50% - 0.5rem))",
-          },
+            transform: "translate(calc(-50% - 0.5rem))"
+          }
         },
         spotlight: {
           "0%": {
             opacity: "0",
-            transform: "translate(-100%, -22%) scale(0)",
+            transform: "translate(-100%, -22%) scale(0)"
           },
           "100%": {
             opacity: "1",
-            transform: "translate(-50%,-40%) scale(1)",
-          },
-        },
+            transform: "translate(-50%,-40%) scale(1)"
+          }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -101,16 +107,17 @@ const config = {
         shimmer: "shimmer 2s linear infinite",
         spotlight: "spotlight 3s ease .85s 1 forwards",
         scroll:
-          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
-      },
-    },
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite"
+      }
+    }
   },
   plugins: [
     require("tailwindcss-animate"),
     addVariablesForColors,
 
     require("tailwindcss/nesting"),
-  ],
+    flowbite.plugin()
+  ]
 } satisfies Config;
 
 function addVariablesForColors({ addBase, theme }: any) {
@@ -120,7 +127,7 @@ function addVariablesForColors({ addBase, theme }: any) {
   );
 
   addBase({
-    ":root": newVars,
+    ":root": newVars
   });
 }
 

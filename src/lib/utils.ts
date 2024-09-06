@@ -7,8 +7,8 @@ import { Course, Courses } from "@/types";
 export const getBlogs = cache(async () => {
   const blogs = await prisma.blogs.findMany({
     include: {
-      description: true,
-    },
+      description: true
+    }
   });
   return blogs;
 });
@@ -18,8 +18,8 @@ export const getTopBlogs = cache(async (take: number) => {
     skip: 0,
     take: take,
     include: {
-      description: true,
-    },
+      description: true
+    }
   });
   return topBlogs;
 });
@@ -27,8 +27,8 @@ export const getTopBlogs = cache(async (take: number) => {
 export const getSpecificBlog = cache(async (id: string) => {
   const courses = await prisma.courses.findUnique({
     where: {
-      id: id,
-    },
+      id: id
+    }
   });
   return courses;
 });
@@ -49,7 +49,7 @@ export const dateFormat = (dateString: string): string => {
     "September",
     "October",
     "November",
-    "December",
+    "December"
   ];
 
   // Get day, month, and year
@@ -59,9 +59,43 @@ export const dateFormat = (dateString: string): string => {
 
   // Format the date
   const formattedDate = day + " " + months[monthIndex] + " " + year;
-  return formattedDate
+  return formattedDate;
 };
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+export const links = [
+  {
+    name: "Dashboard",
+    href: "/staff",
+    icon: "dashboard.png"
+  },
+
+  {
+    name: "Storage",
+    href: "/staff/storage",
+    icon: "storage.png"
+  },
+  {
+    name: "Meetings",
+    href: "/staff/meetings",
+    icon: "zoom.png"
+  },
+  {
+    name: "Chat",
+    href: "/staff/chat",
+    icon: "chat.png"
+  },
+  {
+    name: "Events",
+    href: "/staff/events",
+    icon: "event.png"
+  },
+  {
+    name: "Chat Bot",
+    href: "/staff/bot",
+    icon: "chat-bot.png"
+  }
+];
