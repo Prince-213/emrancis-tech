@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.emrancisgroup.com.ng/
+
+# Sitemaps
+Sitemap: https://www.emrancisgroup.com.ng/sitemap.xml

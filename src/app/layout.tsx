@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     "Welcome to your gateway to comprehensive programming education. Whether you are a beginner or an experienced developer.",
   icons: {
     icon: "/favicon.ico" // /public path
+  },
+  twitter: {
+    card: "summary_large_image"
   }
 };
 
