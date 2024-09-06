@@ -24,7 +24,7 @@ const testimonials = [
     review:
       "Exceptional teaching methods! The courses provided by Emrancis have significantly improved my programming skills. The instructors are knowledgeable, and the learning materials are well-structured. Highly recommend!",
     profile:
-      "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4"
+      "https://images.unsplash.com/photo-1706606999710-72658165a73d?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     name: "Okafor Francis",
@@ -32,15 +32,7 @@ const testimonials = [
     review:
       "I'm impressed by the dedication and professionalism of the instructors. They make complex topics easy to understand and create a supportive learning environment. I've gained confidence in my programming abilities thanks to their guidance.",
     profile:
-      "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4"
-  },
-  {
-    name: "Okah Ifeanyi Livinus",
-    occupation: "Project Manager",
-    review:
-      "Enrolling in courses was one of the best decisions I've made for my career. The practical knowledge gained has been instrumental in my role as a project manager. The instructors are highly skilled and passionate about teaching. I highly recommend their programs!",
-    profile:
-      "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4"
+      "https://images.unsplash.com/photo-1707912079134-becf5a3598e2?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ];
 
