@@ -7,7 +7,7 @@ const space = Space_Grotesk({
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal"],
   subsets: ["latin"],
-  display: "swap",
+  display: "swap"
 });
 
 import "./globals.css";
@@ -15,19 +15,24 @@ import "./globals.css";
 import {
   GitHubLogoIcon,
   InstagramLogoIcon,
-  TwitterLogoIcon,
+  TwitterLogoIcon
 } from "@radix-ui/react-icons";
 import { ScrollDown } from "@/lib/components/scroll";
 
 export const metadata: Metadata = {
   title: {
     template: "%s",
-    default: "Emrancis Tech", // a default is required when creating a template
+    default: "Emrancis Tech" // a default is required when creating a template
   },
+  description:
+    "Welcome to your gateway to comprehensive programming education. Whether you are a beginner or an experienced developer.",
+  icons: {
+    icon: "/favicon.ico" // /public path
+  }
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
