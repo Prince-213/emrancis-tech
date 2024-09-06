@@ -24,7 +24,7 @@ const testimonials = [
     review:
       "Exceptional teaching methods! The courses provided by Emrancis have significantly improved my programming skills. The instructors are knowledgeable, and the learning materials are well-structured. Highly recommend!",
     profile:
-      "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4",
+      "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4"
   },
   {
     name: "Okafor Francis",
@@ -32,7 +32,7 @@ const testimonials = [
     review:
       "I'm impressed by the dedication and professionalism of the instructors. They make complex topics easy to understand and create a supportive learning environment. I've gained confidence in my programming abilities thanks to their guidance.",
     profile:
-      "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4",
+      "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4"
   },
   {
     name: "Okah Ifeanyi Livinus",
@@ -40,8 +40,8 @@ const testimonials = [
     review:
       "Enrolling in courses was one of the best decisions I've made for my career. The practical knowledge gained has been instrumental in my role as a project manager. The instructors are highly skilled and passionate about teaching. I highly recommend their programs!",
     profile:
-      "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4",
-  },
+      "https://source.unsplash.com/a-womans-face-is-painted-in-pastel-colors-OL6-oFdPNZ4"
+  }
 ];
 
 export default function Page({ params }: Props) {
@@ -52,7 +52,7 @@ export default function Page({ params }: Props) {
       <div className=" w-full bg-gradient-to-r from-[#F2F5F8] to-[#F0F0F0] py-[10vh]">
         <div className=" w-[85%] flex lg:flex-row flex-col space-y-8 lg:space-y-0 justify-between items-center mx-auto">
           <Image
-            src="https://source.unsplash.com/purple-and-black-checkered-illustration-m_7p45JfXQo"
+            src="/pexels-djordje-petrovic-590080-2102416.jpg"
             height="1000"
             width="1000"
             className=" h-[30vh] lg:h-screen lg:w-[45%] object-cover  group-hover/card:shadow-xl"
@@ -105,7 +105,7 @@ export default function Page({ params }: Props) {
       <div className=" w-full py-[5vh] lg:py-[15vh]">
         <div className=" w-[85%] relative flex lg:flex-row-reverse flex-col space-y-5 lg:space-y-0 justify-between mx-auto">
           <Image
-            src="https://source.unsplash.com/blue-red-and-pink-abstract-artwork-7wBFsHWQDlk"
+            src="/pexels-mikhail-nilov-6963062.jpg"
             height="1000"
             width="1000"
             className=" h-[30vh] lg:sticky lg:top-0 lg:h-screen lg:w-[45%] rounded-xl object-cover  group-hover/card:shadow-xl"
@@ -155,7 +155,7 @@ export default function Page({ params }: Props) {
           <div className=" mt-[5vh] lg:mt-[10vh] gap-y-5 lg:gap-y-0 lg:gap-x-5 grid grid-cols-1 lg:flex lg:justify-between lg:items-center ">
             {testimonials.map((item, idx) => {
               return (
-                <Slide key={idx} delay={idx/10}>
+                <Slide key={idx} delay={idx / 10}>
                   <div key={idx}>
                     <Image
                       src={item.profile}

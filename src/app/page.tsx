@@ -7,7 +7,7 @@ import React, {
   useEffect,
   useLayoutEffect,
   useRef,
-  useState,
+  useState
 } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -21,7 +21,7 @@ import {
   motion,
   useSpring,
   useAnimationControls,
-  animate,
+  animate
 } from "framer-motion";
 
 import { GlobeDemo } from "@/lib/components/globe";
@@ -51,42 +51,39 @@ export default function Home() {
     {
       tag: "Collect",
       title: "Collect Ideas",
-      image:
-        "https://source.unsplash.com/person-holding-orange-flower-petals-5Q07sS54D0Q",
+      image: "pexels-olly-3758105.jpg",
       writeup:
         "With Emrancis, you can create landing pages that convert more visitors than any other website. You can easily create a page using a variety of unique blocks.",
       points: [
         "We collect ideas from different design inspirations.",
         "Analysis data for any kind of corrections.",
-        "Finalize the product for the production to be done.",
-      ],
+        "Finalize the product for the production to be done."
+      ]
     },
     {
       tag: "Analyze",
       title: "Data Analysis",
-      image:
-        "https://source.unsplash.com/turned-on-monitoring-screen-qwtCeJ5cLYs",
+      image: "pexels-jeswin-5265274.jpg",
       writeup:
         "At Emrancis, we understand the crucial role data analysis plays in making informed decisions and driving successful outcomes in the tech industry. With our expertise in programming and project execution, we seamlessly integrate data analysis into our workflow to extract valuable insights and optimize our strategies. Here's a glimpse into our data analysis process, condensed into three essential steps.",
       points: [
         "We collect data related to your idea and prepare them.",
         "We explore and research intensively on the idea.",
-        "We engage in advanced analytics and decision making.",
-      ],
+        "We engage in advanced analytics and decision making."
+      ]
     },
     {
       tag: "Finalize",
       title: "Finalize Products",
-      image:
-        "https://source.unsplash.com/a-person-sitting-at-a-table-using-a-laptop-computer-d3nKNw1ILdM",
+      image: "pexels-rethaferguson-3825582.jpg",
       writeup:
         "At Emrancis, we pride ourselves on not only teaching programming but also delivering high-quality tech projects that exceed expectations. Our meticulous approach to finalizing projects and preparing them for production ensures seamless transitions from development to implementation. Here's a concise overview of our process, distilled into three essential steps.",
       points: [
         "We commence the finalization process by conducting a comprehensive evaluation of the project.",
         "We proceed to rigorous testing and quality assurance to validate its performance and reliability.",
-        "We focus on deployment and preparing it for production.",
-      ],
-    },
+        "We focus on deployment and preparing it for production."
+      ]
+    }
   ];
 
   const testimonials = [
@@ -96,14 +93,14 @@ export default function Home() {
       review:
         "Exceptional teaching methods! The courses provided by Emrancis have significantly improved my programming skills. The instructors are knowledgeable, and the learning materials are well-structured. Highly recommend!",
       profile:
-        "https://source.unsplash.com/man-wearing-white-button-up-shirt-hAMJpesMeDE",
+        "https://source.unsplash.com/man-wearing-white-button-up-shirt-hAMJpesMeDE"
     },
     {
       name: "Kwame Boateng",
       occupation: "Software Engineer",
       review:
         "I've had an amazing experience learning from Emrancis. The instructors are passionate about teaching and go above and beyond to ensure understanding. The projects assigned are practical and helped me gain real-world experience.",
-      profile: "https://source.unsplash.com/a-man-with-a-mustache-P_jBxTIYGKg",
+      profile: "https://source.unsplash.com/a-man-with-a-mustache-P_jBxTIYGKg"
     },
     {
       name: "Chinonso Okonkwo",
@@ -111,7 +108,7 @@ export default function Home() {
       review:
         "I'm extremely satisfied with the quality of education provided by Emrancis. The curriculum covers a wide range of topics, and the hands-on approach helped me grasp complex concepts more effectively. Thank you for the invaluable learning experience!",
       profile:
-        "https://source.unsplash.com/a-man-with-his-hand-on-his-chin-Rz_8bZzlPc0",
+        "https://source.unsplash.com/a-man-with-his-hand-on-his-chin-Rz_8bZzlPc0"
     },
     {
       name: "Oluwaseun Adeyemi",
@@ -119,7 +116,7 @@ export default function Home() {
       review:
         "As someone with prior programming knowledge, I can confidently say that the courses offered by Emrancis exceeded my expectations. The instructors are experts in their field and offer personalized guidance to help students succeed. Highly recommended for anyone looking to advance their skills!",
       profile:
-        "https://source.unsplash.com/boy-in-green-and-white-adidas-soccer-jersey-cF6quSnBnQ4",
+        "https://source.unsplash.com/boy-in-green-and-white-adidas-soccer-jersey-cF6quSnBnQ4"
     },
     {
       name: "Okafor Emmanuel",
@@ -127,16 +124,15 @@ export default function Home() {
       review:
         "I'm impressed by the dedication and professionalism of the instructors. They make complex topics easy to understand and create a supportive learning environment. I've gained confidence in my programming abilities thanks to their guidance.",
       profile:
-        "https://source.unsplash.com/man-in-red-blue-and-white-plaid-dress-shirt-wearing-yellow-hat-holding-black-smartphone-xdS9XEoKBLY",
+        "https://source.unsplash.com/man-in-red-blue-and-white-plaid-dress-shirt-wearing-yellow-hat-holding-black-smartphone-xdS9XEoKBLY"
     },
     {
       name: "Okah Ifeanyi Livinus",
       occupation: "Project Manager",
       review:
         "Enrolling in courses was one of the best decisions I've made for my career. The practical knowledge gained has been instrumental in my role as a project manager. The instructors are highly skilled and passionate about teaching. I highly recommend their programs!",
-      profile:
-        "https://source.unsplash.com/man-wearing-black-shirt-aoEwuEH7YAs",
-    },
+      profile: "https://source.unsplash.com/man-wearing-black-shirt-aoEwuEH7YAs"
+    }
   ];
 
   useEffect(() => {
@@ -151,7 +147,7 @@ export default function Home() {
         yPercent: 90,
         stagger: 0.1,
         ease: "power4.out",
-        duration: 0.5,
+        duration: 0.5
       });
 
       /* animate(
@@ -174,9 +170,9 @@ export default function Home() {
           trigger: ".container",
           pin: true,
           scrub: 1,
-          end: "+=3000",
+          end: "+=3000"
           //snap: 1 / (sections.length - 1),
-        },
+        }
       });
 
       gsap.to(mask, {
@@ -184,8 +180,8 @@ export default function Home() {
         scrollTrigger: {
           trigger: ".wrapper",
           start: "top left",
-          scrub: 1,
-        },
+          scrub: 1
+        }
       });
 
       // whizz around the sections
@@ -206,8 +202,8 @@ export default function Home() {
           scrollTrigger: {
             trigger: section,
             containerAnimation: scrollTween,
-            start: "left center",
-          },
+            start: "left center"
+          }
         });
       });
 
@@ -220,8 +216,8 @@ export default function Home() {
           trigger: ".sec-title",
           start: "top 85%",
           end: "bottom bottom",
-          scrub: 1,
-        },
+          scrub: 1
+        }
       });
     }, root); // <- scopes all selector text to the root element
 
@@ -259,9 +255,9 @@ export default function Home() {
                     visible: (i: any) => ({
                       y: 0,
                       transition: {
-                        delay: i * 0.1,
-                      },
-                    }),
+                        delay: i * 0.1
+                      }
+                    })
                   }}
                 >
                   Unlock Coding Mastery with Emrancis.
@@ -291,11 +287,11 @@ export default function Home() {
             <motion.div
               variants={{
                 initial: { opacity: 0, y: 150 },
-                show: { opacity: 1, y: 0 },
+                show: { opacity: 1, y: 0 }
               }}
               transition={{
                 ease: "anticipate",
-                duration: ".6",
+                duration: ".6"
               }}
               initial="initial"
               whileInView="show"
@@ -331,7 +327,7 @@ export default function Home() {
           <motion.h2
             variants={{
               initial: { opacity: 0, y: 100 },
-              show: { opacity: 1, y: 0 },
+              show: { opacity: 1, y: 0 }
             }}
             initial="initial"
             whileInView="show"
@@ -409,7 +405,7 @@ export default function Home() {
                     </button>
                   </div>
                   <Image
-                    src={item.image}
+                    src={`/${item.image}`}
                     height="1000"
                     width="1000"
                     className=" h-[65vh] lg:block hidden w-[40%] object-cover rounded-xl group-hover/card:shadow-xl"
@@ -430,7 +426,7 @@ export default function Home() {
           <motion.h1
             variants={{
               initial: { x: 50, opacity: 0 },
-              show: { x: 0, opacity: 1 },
+              show: { x: 0, opacity: 1 }
             }}
             initial="initial"
             whileInView="show"
@@ -451,9 +447,9 @@ export default function Home() {
                   staggerChildren: 0.4,
                   type: "spring",
                   stiffness: 260,
-                  damping: 20,
-                },
-              },
+                  damping: 20
+                }
+              }
             }}
             initial="hidden"
             whileInView={"visible"}
@@ -465,8 +461,8 @@ export default function Home() {
                 hidden: { y: 20, opacity: 0 },
                 visible: {
                   y: 0,
-                  opacity: 1,
-                },
+                  opacity: 1
+                }
               }}
               className=" space-y-5 flex-col flex justify-center items-center lg:items-start lg:justify-start"
             >
@@ -497,8 +493,8 @@ export default function Home() {
                 hidden: { y: 20, opacity: 0 },
                 visible: {
                   y: 0,
-                  opacity: 1,
-                },
+                  opacity: 1
+                }
               }}
               className=" space-y-5 flex-col flex justify-center items-center lg:items-start lg:justify-start"
             >
@@ -529,8 +525,8 @@ export default function Home() {
                 hidden: { y: 20, opacity: 0 },
                 visible: {
                   y: 0,
-                  opacity: 1,
-                },
+                  opacity: 1
+                }
               }}
               className=" space-y-5 flex-col flex justify-center items-center lg:items-start lg:justify-start"
             >
@@ -563,7 +559,7 @@ export default function Home() {
         <div className=" w-[85%] priority flex lg:flex-row flex-col justify-between items-center mx-auto">
           <div className=" lg:w-[40%] relative">
             <Image
-              src="https://source.unsplash.com/woman-in-black-top-using-surface-laptop-glRqyWJgUeY"
+              src="/pexels-fauxels-3182812.jpg"
               height="1000"
               width="1000"
               className=" h-[30vh] lg:h-[65vh] pro-card w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -574,13 +570,13 @@ export default function Home() {
             <motion.div
               variants={{
                 initial: { opacity: 0, x: -100 },
-                show: { opacity: 1, x: 0 },
+                show: { opacity: 1, x: 0 }
               }}
               initial="initial"
               whileInView="show"
               viewport={{ once: true, amount: "all" }}
               transition={{
-                delay: 0.4,
+                delay: 0.4
               }}
               className=" text-pretty space-y-2 p-6 rounded-lg bg-white shadow-xl top-[30%] lg:top-[45%] lg:-right-[15%] -right-[10%] absolute lg:w-[20em] w-[15em] h-fit"
             >
@@ -610,11 +606,11 @@ export default function Home() {
             <motion.button
               variants={{
                 initial: { y: 60 },
-                show: { y: 0 },
+                show: { y: 0 }
               }}
               transition={{
                 duration: ".2",
-                ease: "linear",
+                ease: "linear"
               }}
               initial="initial"
               whileInView="show"
@@ -684,8 +680,8 @@ export default function Home() {
               hidden: { y: 50, opacity: 0 },
               visible: {
                 y: 5,
-                opacity: 1,
-              },
+                opacity: 1
+              }
             }}
             initial="hidden"
             whileInView={"visible"}
